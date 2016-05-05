@@ -8,7 +8,6 @@ scoreCard.controller('GameController', ['$scope',
 		$scope.debug = "";
 		$scope.player_count = 4;
 		
-
 		function Player() {
 			this.name = "";
 			this.score = 100;
@@ -24,12 +23,10 @@ scoreCard.controller('GameController', ['$scope',
 
 		$scope.newGame = function() {
 			$scope.players = [];
-			$scope.players = [
-				new Player(),
-				new Player(),
-				new Player(),
-				new Player()
-			];
+			for (j = 0; j < $scope.player_count; j++) {
+				$scope.players.push(new Player());
+			}
+			$scope.active = true;
 		}
 
 		$scope.tricksTotal = function() {
@@ -45,26 +42,24 @@ scoreCard.controller('GameController', ['$scope',
 		$scope.calculateScore = function(tricks, tricks_total, all, team) {
 			var score = 0;
 			if (all) {
-			  if (tricks == tricks_total) {      
-			    if (team) {
-			      score -= 50;
-			    } else {
-			      score -= 100;
-			    }
-			  } else {
-			    score += (tricks_total - tricks) * 10;
-			  }
+				if (tricks == tricks_total && team) {
+					score -= 50;
+				} else if (tricks == tricks_total && !team) {
+					score -= 100;
+				} else {
+					score += (tricks_total - tricks) * 10;
+				}
 			} else {
-			  if (tricks == 0) {
-			    score -= 20;
-			  } else {
-			    score += tricks * 10;
-			  }
-			} 
+				if (tricks == 0) {
+					score -= 20;
+				} else {
+					score += tricks * 10;
+				}
+			}
 			return score;
 		}
 
-		$scope.validateNum = function(player, tricks) {
+		$scope.validateTricks = function(player) {
 			if (isNaN(player.tricks) || typeof player.tricks == typeof null) {
 				player.tricks = 0;
 			}

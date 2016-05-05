@@ -4,68 +4,49 @@
     <meta charset="UTF-8">
     <title>All or Nothing Scorecard</title>
     <meta name='viewport' content='width=device-width, user-scalable=no'>
+    <link href="themes.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="app.js"></script>
-    <style>
-      li.players {
-        list-style: none;
-        margin: 5px;
-        background-color: #ccc;
-        float: left;
-        text-align: center;
-        width: 300px;
-      }
-      .players input {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-      }
-      nav ul {
-        padding: 0;
-      }
-      nav li {
-        display: inline;
-        list-style: none;
-      }
-    </style>
   </head>
   <body>
     <div id="main" ng-app="scoreCard" ng-controller="GameController">
       <nav>
         <ul>
-          <li><button id="prev-round"
-          ng-click="prevRound()">Previous Round</button></li>
-          <li>Round: {{round}}</li>
-          <li><button id="next-round"
-          ng-click="advanceGame()">Next Round</button></li>
-          
           <li>
-            <input type='checkbox' name='team' 
-            value='team' class='checkbox'
-            id='checkbox-team' 
-            ng-model="team"
-            ng-true-value='true'
-            ng-false-value='false'> 
-            <label for='checkbox-team'>
-            Play in Teams</label>
+            <button id="prev-round" class="btn btn-sm btn-dark"
+            ng-click="prevRound()">Previous Round</button></li>
+            <li>Round: {{round}}</li>
+            <li><button id="next-round" class="btn btn-sm btn-dark"
+            ng-click="advanceGame()">Next Round</button>
           </li>
           
-          <li>
-            <label for="player-count">Number of Players</label>
-            <select name="player_count"
-            id="player-count"
-            ng-model="player_count"
-            >
-              <option value="2">2</option>
-              <option value="4" selected>4</option>
-              <option value="3">3</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-            <p>{{player_count}}</p>
+          <li class="stacking">
+            <div >
+              <label for='checkbox-team'>
+              Play in Teams</label>
+              <input type='checkbox' name='team' 
+              value='team'
+              id='checkbox-team' 
+              ng-model="team"
+              ng-true-value='true'
+              ng-false-value='false'> 
+            </div>
+            <div>
+              <label for="player-count">Number of Players</label>
+              <select name="player_count"
+              id="player-count"
+              ng-model="player_count"
+              >
+                <option value="2">2</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
           </li>
 
-          <li><button id="new-game"
+          <li><button id="new-game" class="btn btn-md btn-dark"
           ng-click="newGame()">New Game</button></li>
         </ul>
       </nav>
@@ -73,44 +54,62 @@
       <form name="game" novalidate>
       <ul>
         <li class="players" ng-repeat="player in players">
-          <label for="{{players.indexOf(player)}}-name">
+          <label class="sr-only" for="{{players.indexOf(player)}}-name">
           Player: </label>
           <input type='text' name='name' 
-          placeholder='{{getTeam()}} Name' class='namefield'
+          placeholder='{{getTeam()}} Name' class='textfield'
           id='{{players.indexOf(player)}}-name'
           ng-model="player.name">
 
-          <input type='checkbox' name='all' 
-          value='all' class='checkbox'
-          id='{{players.indexOf(player)}}-all' 
-          ng-model="player.all"
-          ng-true-value='true'
-          ng-false-value='false'> 
-          <label for='{{players.indexOf(player)}}-all'>
-          {{getBid(player.all)}}</label>
 
-          <h4>Score: </h4>
-          <h4>{{player.score}}</h4>
+          <span class="form-group">
+            <input type='checkbox' name='all' 
+            value='all' class='checkbox'
+            id='{{players.indexOf(player)}}-all' 
+            ng-model="player.all"
+            ng-true-value='true'
+            ng-false-value='false'> 
+            <label for='{{players.indexOf(player)}}-all'>
+            {{getBid(player.all)}}</label>
+          </span>
 
-          <label for='{{players.indexOf(player)}}-tricks'>
-          Tricks Taken: </label>
-          <input type='number' name='tricks'
-          placeholder='Tricks Taken' class='tricksfield' 
-          id='{{players.indexOf(player)}}-tricks'
-          min="0" max="{{tricksTotal()}}"
-          integer
-          ng-model="player.tricks" 
-          ng-change="validateNum(player)"
-          ng-model-options="{updateOn: 'blur'}"/>
+          <span class="form-group">
+            <label for='{{players.indexOf(player)}}-tricks'>
+            Tricks Taken: </label>
+            <input type='number' name='tricks'
+            placeholder='Tricks Taken' class='textfield' 
+            id='{{players.indexOf(player)}}-tricks'
+            min="0" max="{{tricksTotal()}}"
+            integer
+            ng-model="player.tricks" 
+            ng-change="validateTricks(player)"/>
+          </span>
+          
+          <span class="form-group">
+            <h4>Score: </h4>
+            <h4>{{calculateScore(player.tricks, tricksTotal(), player.all, team)}}</h4>
+          </span>
 
-          <div>
-          <h4>Debug</h4>
-          {{player}} 
-          {{debug}}
+          <span class="form-group">
+            <h4>Subtotal: </h4>
+            <h4>{{player.score}}</h4>
+          </span>
+
+          <div class="debug">
+            <h4>Debug</h4>
+            <p>{{player}}</p>
+            <p>{{debug}}</p>
           </div>
         </li>
       </ul> 
       </form>
     </div>
+    <footer>
+      <ul>
+        <li><a class="a-gold" href="#">About</a></li>
+        <li><a class="a-gold" href="#">Links</a></li>
+        <li><a class="a-gold" href="#">Links</a></li>
+      </ul>
+    </footer>
 </body>
 </html>
