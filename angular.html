@@ -29,14 +29,16 @@
               id='checkbox-team' 
               ng-model="team"
               ng-true-value='true'
-              ng-false-value='false'> 
+              ng-false-value='false'
+              ng-change="confirmTeam()"> 
             </div>
+
             <div>
               <label for="player-count">Number of Players</label>
               <select name="player_count"
               id="player-count"
               ng-model="player_count"
-              >
+              ng-change="confirmCount()">
                 <option value="2">2</option>
                 <option value="4">4</option>
                 <option value="3">3</option>
@@ -50,6 +52,15 @@
           ng-click="newGame()">New Game</button></li>
         </ul>
       </nav>
+      <div class="debug">
+        <h4>Debug</h4>
+        <p>Teams: {{team}}</p>
+        <p>Player Count: {{player_count}}</p>
+        <p>Active: {{active}}</p>
+        <p>Has edited game: {{has_edited_game}}</p>
+        <p>Has met total tricks: {{meetTotalTricks()}}</p>
+        <p>{{debug}}</p>
+      </div>
 
       <form name="game" novalidate>
       <ul>
@@ -68,7 +79,8 @@
             id='{{players.indexOf(player)}}-all' 
             ng-model="player.all"
             ng-true-value='true'
-            ng-false-value='false'> 
+            ng-false-value='false'
+            ng-change="setHasEdited(true)"> 
             <label for='{{players.indexOf(player)}}-all'>
             {{getBid(player.all)}}</label>
           </span>
@@ -91,9 +103,11 @@
           </span>
 
           <span class="form-group">
-            <h4>Subtotal: </h4>
+            <h4>Total: </h4>
             <h4>{{player.score}}</h4>
           </span>
+          
+          <h4>{{currentDealer(players.indexOf(player))}}</h4>
 
           <div class="debug">
             <h4>Debug</h4>

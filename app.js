@@ -5,9 +5,9 @@ scoreCard.controller('GameController', ['$scope',
 		$scope.active = true;
 		$scope.round = 1;
 		$scope.team = false;
-		$scope.debug = "";
+		$scope.has_edited_game = false;
 		$scope.player_count = 4;
-		
+		$scope.debug = "";
 		function Player() {
 			this.name = "";
 			this.score = 100;
@@ -21,12 +21,63 @@ scoreCard.controller('GameController', ['$scope',
 			new Player()
 		];
 
-		$scope.newGame = function() {
+		$scope.restart = function() {
 			$scope.players = [];
 			for (j = 0; j < $scope.player_count; j++) {
 				$scope.players.push(new Player());
 			}
 			$scope.active = true;
+			$scope.round = 1;
+			$scope.has_edited_game = false;
+		}
+
+		$scope.newGame = function() {
+			if ($scope.has_edited_game) {
+				$scope.confirm = confirm("This action will cause the game to reset.\nDo you want to continue?");
+				if ($scope.confirm) {
+					$scope.restart();
+				}
+			} else {
+				$scope.restart();
+			}
+		}
+
+		$scope.confirmTeam = function() {
+			if ($scope.has_edited_game) {
+				$scope.confirm = confirm("This action will cause the game to reset.\nDo you want to continue?");
+				if ($scope.confirm) {
+					$scope.restart();
+				} else {
+					$scope.team = !($scope.team); 
+				}
+			}
+		}
+
+		$scope.confirmCount = function() {
+			if ($scope.has_edited_game) {
+				$scope.confirm = confirm("This action will cause the game to reset.\nDo you want to continue?");
+				if ($scope.confirm) {
+					$scope.restart();
+				} else {
+					$scope.player_count = $scope.players.length; 
+				}
+			} else {
+				$scope.restart();
+			}
+		}
+
+		$scope.currentDealer = function(index) {
+			if ($scope.round == index + 1) {
+				return 'Dealer';
+			} else if ($scope.round - $scope.players.length == index + 1) {
+				return 'Dealer';
+			} else {
+				return "-----";
+			}
+		}
+
+		$scope.setHasEdited = function(boolean) {
+			$scope.has_edited_game = boolean;
 		}
 
 		$scope.tricksTotal = function() {
@@ -63,6 +114,7 @@ scoreCard.controller('GameController', ['$scope',
 			if (isNaN(player.tricks) || typeof player.tricks == typeof null) {
 				player.tricks = 0;
 			}
+			$scope.setHasEdited(true);
 		}
 
 		$scope.getTeam = function() {
@@ -85,17 +137,31 @@ scoreCard.controller('GameController', ['$scope',
 				$scope.round -= 1;
 			}
 		}
-
+		$scope.meetTotalTricks = function() {
+			var current_tricks = 0;
+			for (i = 0; i < $scope.players.length; i++){
+				current_tricks += $scope.players[i].tricks;
+			} 
+			if (current_tricks == $scope.tricksTotal()) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 		$scope.advanceGame = function() {
 			if ($scope.round <= 10 && $scope.active) {
-				$scope.round += 1;
-				for (i = 0; i < $scope.players.length; i++) {
-					var player = $scope.players[i];
-					var tricks_total = $scope.tricksTotal();
-					var score_change = $scope.calculateScore(player.tricks, tricks_total, player.all, $scope.team);
-					player.score += score_change;
-					player.tricks = 0;
-					player.all = false;
+				if ($scope.meetTotalTricks()) {
+					$scope.round += 1;
+					for (i = 0; i < $scope.players.length; i++) {
+						var player = $scope.players[i];
+						var tricks_total = $scope.tricksTotal();
+						var score_change = $scope.calculateScore(player.tricks, tricks_total, player.all, $scope.team);
+						player.score += score_change;
+						player.tricks = 0;
+						player.all = false;
+					}
+				} else {
+					alert("The total tricks for this round hasn't been met.");
 				}
 			} else {
 				$scope.active = false;
