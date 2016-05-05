@@ -44,6 +44,7 @@
     <script>
       var active = true;
       var round = 1;
+      var team = false;
 
       var players = [
         {
@@ -80,10 +81,15 @@
         return total;
       }
 
-      var calculateScore = function(score, tricks, tricks_total, all) {
+      var calculateScore = function(tricks, tricks_total, all, team) {
+        var score = 0;
         if (all) {
-          if (tricks == tricks_total) {
-            score -= 100;
+          if (tricks == tricks_total) {        
+            if (team) {
+              score -= 50;
+            } else {
+              score -= 100;
+            }
           } else {
             score += (tricks_total - tricks) * 10;
           }
@@ -118,7 +124,7 @@
             $('#score').append("<td class='score' id='" + i + "-score'>" + players[i]['score'] + "</td>");
             $('#tricks').append("<td><div class='tl' id='" + i + "-tl'>0</div><div class='tricks' id='" + i + "-tricks'></div></td>");
             $('#bid').append(
-              "<td><input class='bid' type='checkbox' name='bid' id='" + i + "-bid' value='all'> <label for='" + i + "-bid'>Nothing</label></id>");
+              "<td><input class='bid' type='checkbox' name='bid' id='" + i + "-bid' value='all'> <label for='" + i + "-bid'>Nothing</label></td>");
           }
           $("<h3 id='round'>Round: 1</h3>").insertAfter("h1");
           
@@ -153,7 +159,7 @@
               var total = tricksTotal();
               for (i = 0; i < players.length; i++) {
                 var player = players[i];
-                players[i]['score'] = calculateScore(players[i]['score'], players[i]['tricks'], total, players[i]['all']);
+                players[i]['score'] += calculateScore(players[i]['tricks'], total, players[i]['all'], team);
                 setBid(boxes[i]);
                 players[i]['tricks'] = 0;
                 $("#" + i + "-score" ).html( players[i]['score']);
