@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--JQuery, jQuery.ui-->
+    <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+    <script   src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="themes.css" type="text/css">
+    <title>A/N Theme</title>
+  </head>
+  <body>
+  <!--LIGHT-->
+  <div id="light">
+    <h1>Themes</h1>
+    <h2>Themes</h2>
+    <h3>Themes</h3>
+    <p>Themes</p>
+    <h2>Buttons</h2>
+    <div class="container" id="buttons">
+      <button class="btn btn-sm">Small</button>
+      <button class="btn btn-md btn-high">Mediu</button>
+      <button class="btn btn-lg">Large</button>
+    </div>
+    <h2>Links</h2>
+    <div class="container" id="links">
+    <a href="#">Link</a>
+    <a class="a-gold" href="#">Link</a>
+    </div>
+    <h2>Forms</h2>
+    <div class="container" id="input">
+      <input class="textfield" type="text" name="test" placeholder="Hello">
+    </div>
+    <div class="container" id="checkbox">
+      <input class="checkbox" type='checkbox' name='test' id="check" value='all'> 
+      <label class="checkbox-label" for="check">Test</label>
+    </div>
+    <div class="container" id="selector">
+      <select class="selector" name="number">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+    <div class="container">
+      <div class="slider"></div>
+    </div>
+    <h2>Pop-Ups</h2>
+    <div class="container alert">
+      <div class="confirm" id="confirm1">
+          <h2>Are you sure?</h2>
+          <span>
+          <button class="btn btn-md">Continue</button>
+          <button class="btn btn-md btn-high">Cancel</button>
+          <span>
+      </div>
+      <button class="btn btn-md btn-alert1">Confirm</button>
+    </div>
+  </div>
+
+  <!--DARK-->
+  <div id="dark">
+    <h1>Themes</h1>
+    <h2>Themes</h2>
+    <h3>Themes</h3>
+    <p>Themes</p>
+    <h2>Buttons</h2>
+    <div class="container" id="buttons-dark">
+      <button class="btn btn-sm btn-dark">Small</button>
+      <button class="btn btn-md btn-dark btn-high">Mediu</button>
+      <button class="btn btn-lg btn-dark">Large</button>
+    </div>
+    <h2>Links</h2>
+    <div class="container" id="links-dark">
+    <a class="a-dark" href="#">Link</a>
+    <a class="a-dark a-gold" href="#">Link</a>
+    </div>
+    <h2>Forms</h2>
+    <div class="container" id="input-dark">
+      <input class="textfield textfield-dark" type="text" name="test" placeholder="Hello">
+    </div>
+    <div class="container" id="checkbox-dark">
+      <input class="checkbox checkbox-dark" type='checkbox' name='test' id="check-dark" value='all'> 
+      <label class="checkbox-label" for="check-dark">Test</label>
+    </div>
+    <div class="container" id="selector-dark">
+      <select class="selector selector-dark" name="number">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+    <div class="container">
+      <div class="slider slider-dark"></div>
+    </div>
+    <h2>Pop-Ups</h2>
+    <div class="container alerts">
+      <div class="confirm" id="confirm2">
+          <h2>Are you sure?</h2>
+          <span>
+          <button class="btn btn-md">Continue</button>
+          <button class="btn btn-md btn-high">Cancel</button>
+          <span>
+      </div>
+      <button class="btn btn-md btn-dark btn-alert2">Confirm</button>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      $(".slider").slider({
+        max: 10
+      });
+
+      $('.btn-alert1').click(function() {
+        //window.confirm('Are you sure?');
+        $("#confirm1").toggleClass("confirm-visible");
+      });
+      $('.btn-alert2').click(function() {
+        $("#confirm2").toggleClass("confirm-visible");
+      });
+    });    
+  </script>
+  </body>
+</html>
