@@ -5,6 +5,11 @@
   .container .btn {
     display: block; }
 
+.debug {
+  border: 2px solid red;
+  border-radius: 4px;
+  background-color: #ffcccc; }
+
 /*SCREEN READER*/
 .sr-only {
   position: absolute;
@@ -21,7 +26,8 @@
 body {
   font-family: Arial, sans-serif;
   font-size: 100%;
-  width: 100%; }
+  width: 100%;
+  background-color: #1a1a1a; }
 
 #light {
   color: #1a1a1a;
@@ -40,6 +46,48 @@ body {
   right: 0;
   width: 50%;
   padding-left: 20px; }
+
+/*FOOTER*/
+html {
+  min-height: 100%; }
+
+body {
+  margin: 0; }
+
+footer {
+  display: block;
+  clear: both;
+  height: 80px;
+  padding: 30px 0px;
+  width: 100%;
+  text-align: center; }
+  footer li {
+    margin: 20px; }
+
+/*LISTS*/
+li {
+  list-style: none; }
+
+ul {
+  padding: 0; }
+
+footer li, nav li {
+  display: inline-block; }
+
+/*NAVIGATION*/
+nav {
+  color: #f2f2f2; }
+
+/*PLAYER SECTIONS*/
+li.players {
+  margin: 10px;
+  float: left;
+  width: 260px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 2px solid #f2f2f2;
+  border-radius: 4px;
+  text-align: center; }
 
 /*BUTTONS*/
 .btn {
@@ -96,6 +144,14 @@ a {
 
 /*FORMS*/
 /*fields*/
+.form-group {
+  display: block; }
+  .form-group input, .form-group label, .form-group h4 {
+    display: inline; }
+
+input[type="number"] {
+  width: 60px; }
+
 .textfield {
   padding: 5px 10px;
   margin: 5px;
@@ -103,6 +159,7 @@ a {
   font-size: 1em;
   color: #1a1a1a;
   vertical-align: middle;
+  text-align: center;
   background-color: #f2f2f2;
   border: 2px solid #f2f2f2;
   border-radius: 4px;

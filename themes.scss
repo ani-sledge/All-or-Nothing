@@ -6,6 +6,11 @@
 		display: block;
 	}
 }
+.debug {
+	border: 2px solid red;
+	border-radius: 4px;
+	background-color: lighten(red, 40%);
+}
 
 /*SCREEN READER*/
 .sr-only {
@@ -33,6 +38,7 @@ body {
 	font-family: $font;
 	font-size: 100%;
 	width: 100%;
+	background-color: $text;
 }
 #light {
 	color: $text;
@@ -51,6 +57,59 @@ body {
 	right: 0;
 	width: 50%;
 	padding-left: 20px;
+}
+/*FOOTER*/
+html {
+	min-height: 100%;
+}
+body {
+	margin: 0;
+}
+
+footer {
+	display: block;
+	clear: both;
+	height: 80px;
+	padding: 30px 0px;
+	width: 100%;	
+	text-align: center;
+	li {
+		margin: 20px;
+	}
+}
+
+/*LISTS*/
+li {
+	list-style: none;
+
+}
+ul {
+	padding: 0;
+}
+footer li, nav li {
+	display: inline-block;
+}
+
+.stacking {
+	div {
+	}
+}
+
+/*NAVIGATION*/
+nav {
+	color: $base;
+}
+
+/*PLAYER SECTIONS*/
+li.players {
+	margin: 10px;
+	float: left;
+	width: 260px;
+	padding: 20px;
+	background-color: $base;
+	border: 2px solid $base;
+	border-radius: $radius;
+	text-align: center;
 }
 
 /*BUTTONS*/
@@ -116,6 +175,16 @@ a {
 
 /*FORMS*/
 /*fields*/
+.form-group {
+	display: block;
+	input, label, h4 {
+		display: inline;
+	}
+}
+input[type="number"] {
+	width: 60px;
+}
+
 .textfield {
 	padding: 5px 10px;
 	margin: 5px;
@@ -123,6 +192,7 @@ a {
 	font-size: 1em;
 	color: $text;
 	vertical-align: middle;
+	text-align: center;
 	background-color: $base;
 	border: 2px solid $base;
 	border-radius: $radius;
