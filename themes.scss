@@ -10,6 +10,9 @@
 	border: 2px solid red;
 	border-radius: 4px;
 	background-color: lighten(red, 40%);
+	max-width: 500px;
+	font-size: 10px;
+	display: none;
 }
 
 /*SCREEN READER*/
@@ -110,6 +113,10 @@ li.players {
 	border: 2px solid $base;
 	border-radius: $radius;
 	text-align: center;
+}
+
+.spacer {
+	color: $base;
 }
 
 /*BUTTONS*/

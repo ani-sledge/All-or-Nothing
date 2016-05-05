@@ -8,7 +8,10 @@
 .debug {
   border: 2px solid red;
   border-radius: 4px;
-  background-color: #ffcccc; }
+  background-color: #ffcccc;
+  max-width: 500px;
+  font-size: 10px;
+  display: none; }
 
 /*SCREEN READER*/
 .sr-only {
@@ -88,6 +91,9 @@ li.players {
   border: 2px solid #f2f2f2;
   border-radius: 4px;
   text-align: center; }
+
+.spacer {
+  color: #f2f2f2; }
 
 /*BUTTONS*/
 .btn {
