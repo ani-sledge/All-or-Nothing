@@ -1,14 +1,14 @@
 $gold: #ecb939;
 $card: #d4d4d4;
-$base: #2a2a2a;
+$base: lighten(#2a2a2a, 10%);
 /*#f2f2f2;*/
-$text: #fefefe;
+$text: #fafafa;
 $body: black;
 $header: black;
 $footer: lighten(desaturate(#372e29, 15%), 15%);
 
 $thick: 3px;
-$radius: 0;
+$radius: 6px;
 $font: Arial, sans-serif;
 $fontlg: 3em;
 $fontmd: 2em;
@@ -27,7 +27,7 @@ html {
 body {
     min-height: 100%;
 	font-family: $font;
-	background-color: $card;
+	background-color: lighten($card, 5%);
 	color: $text;
 }
 
@@ -50,13 +50,17 @@ a {
 	padding: 5px 10px;
 	font-variant: small-caps;
 	text-decoration: none;
-	color: $gold;
-	border: $thick solid $footer;
+	color: black;
+	border: $thick solid $gold;
 	border-radius: $radius;
 	&:hover {
 		text-decoration: none;
-		color: $gold;
-		border-color: $gold;
+		color: black;
+		border-color: black;
+	}
+	&:active {
+		text-decoration: none;
+		color: black;
 	}
 }
 
@@ -81,10 +85,13 @@ header {
 	footer {
 		position: absolute;
 		bottom: 0;
-		height: 100px;
+		height: 150px;
 	}
-	#main, #highscores {	
-		margin-bottom: 100px;
+	#main {	
+		margin-bottom: 150px;
+	}
+	#highscores {
+		margin-bottom: 165px;
 	}
 	footer li {
 		display: inline;
@@ -102,7 +109,7 @@ header {
 .navbar-inverse {
 	background-color: $base;
 	border-bottom: $thick solid $gold;
-	border-radius: $radius;
+	border-radius: 0;
 }
 .navbar-btn {
 	margin-top: 15px;
@@ -134,13 +141,14 @@ header {
 	}
 }
 .players {
+	color: $base;
 	margin-bottom: 15px;
 	padding: 15px;
 	text-align: center;
 	.input-group, .form-group {
 		margin: 5px auto;
 	}
-	background-color: lighten($base, 5%);
+	background-color: $text;
 	border: $thick solid $text;
 	border-radius: $radius;
 	input[type="number"] {
@@ -169,8 +177,8 @@ header {
 	padding: 5px;
 	font-family: $font;
 	text-align: center;
-	background-color: lighten($base, 5%);
-	border: $thick solid lighten($base, 5%);
+	background-color: $text;
+	border: $thick solid $text;
 	border-radius: $radius;
 	outline: 0; 
 	&:focus {
@@ -183,6 +191,7 @@ header {
 	padding: 5px 10px;
 	font-weight: normal; 
 	border: $thick solid $gold;
+	border-radius: $radius;
 }
 .notdealer {
 	visibility: hidden;
@@ -208,17 +217,17 @@ header {
 /*Footer*/
 footer {
 	width: 100%;
-	margin-top: 15px;
 	text-align: center;
-	background-color: $footer;
+	background-color: $gold;
 	ul {
 		padding-left: 0;
-		padding-top: 30px;
+		padding-top: 40px;
 	}
 	li {
 		list-style: none;
 		margin: 10px 0;
 	}
+	p {font-size: 1em;}
 }
 
 

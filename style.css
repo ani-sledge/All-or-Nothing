@@ -7,8 +7,8 @@ html {
 body {
   min-height: 100%;
   font-family: Arial, sans-serif;
-  background-color: #d4d4d4;
-  color: #fefefe; }
+  background-color: #e1e1e1;
+  color: #fafafa; }
 
 p, .players label, input, footer {
   font-size: 1.6em;
@@ -31,13 +31,16 @@ a {
   padding: 5px 10px;
   font-variant: small-caps;
   text-decoration: none;
-  color: #ecb939;
-  border: 3px solid #565656;
-  border-radius: 0; }
+  color: black;
+  border: 3px solid #ecb939;
+  border-radius: 6px; }
   a:hover {
     text-decoration: none;
-    color: #ecb939;
-    border-color: #ecb939; }
+    color: black;
+    border-color: black; }
+  a:active {
+    text-decoration: none;
+    color: black; }
 
 /*HEADER*/
 header {
@@ -58,10 +61,13 @@ header {
   footer {
     position: absolute;
     bottom: 0;
-    height: 100px; }
+    height: 150px; }
 
-  #main, #highscores {
-    margin-bottom: 100px; }
+  #main {
+    margin-bottom: 150px; }
+
+  #highscores {
+    margin-bottom: 165px; }
 
   footer li {
     display: inline;
@@ -73,25 +79,25 @@ header {
   margin-bottom: 0; }
 
 .navbar-inverse {
-  background-color: #2a2a2a;
+  background-color: #444444;
   border-bottom: 3px solid #ecb939;
   border-radius: 0; }
 
 .navbar-btn {
   margin-top: 15px;
   margin-bottom: 15px;
-  border: 3px solid #2a2a2a;
-  border-radius: 0;
+  border: 3px solid #444444;
+  border-radius: 6px;
   font-variant: small-caps; }
   .navbar-btn:hover {
-    color: #fefefe; }
+    color: #fafafa; }
 
 .navbar-text {
   float: none; }
 
 .btn-gold {
-  background-color: #2a2a2a;
-  border: 3px solid #fefefe; }
+  background-color: #444444;
+  border: 3px solid #fafafa; }
   .btn-gold:hover {
     color: #ecb939;
     border-color: #ecb939; }
@@ -103,12 +109,13 @@ header {
     list-style: none; }
 
 .players {
+  color: #444444;
   margin-bottom: 15px;
   padding: 15px;
   text-align: center;
-  background-color: #373737;
-  border: 3px solid #fefefe;
-  border-radius: 0; }
+  background-color: #fafafa;
+  border: 3px solid #fafafa;
+  border-radius: 6px; }
   .players .input-group, .players .form-group {
     margin: 5px auto; }
   .players input[type="number"] {
@@ -131,9 +138,9 @@ header {
   padding: 5px;
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #373737;
-  border: 3px solid #373737;
-  border-radius: 0;
+  background-color: #fafafa;
+  border: 3px solid #fafafa;
+  border-radius: 6px;
   outline: 0; }
   .textfield:focus {
     border-color: #ecb939; }
@@ -143,7 +150,8 @@ header {
   font-variant: small-caps;
   padding: 5px 10px;
   font-weight: normal;
-  border: 3px solid #ecb939; }
+  border: 3px solid #ecb939;
+  border-radius: 6px; }
 
 .notdealer {
   visibility: hidden; }
@@ -152,27 +160,28 @@ header {
 #highscores {
   text-align: center;
   margin-top: 15px;
-  background-color: #2a2a2a;
-  border: 3px solid #fefefe;
-  border-radius: 0; }
+  background-color: #444444;
+  border: 3px solid #fafafa;
+  border-radius: 6px; }
   #highscores .panel-heading {
     color: #fff;
-    background-color: #2a2a2a;
-    border: 3px solid #2a2a2a; }
+    background-color: #444444;
+    border: 3px solid #444444; }
   #highscores .list-group {
-    color: #2a2a2a; }
+    color: #444444; }
 
 /*Footer*/
 footer {
   width: 100%;
-  margin-top: 15px;
   text-align: center;
-  background-color: #565656; }
+  background-color: #ecb939; }
   footer ul {
     padding-left: 0;
-    padding-top: 30px; }
+    padding-top: 40px; }
   footer li {
     list-style: none;
     margin: 10px 0; }
+  footer p {
+    font-size: 1em; }
 
 /*# sourceMappingURL=style.css.map */
