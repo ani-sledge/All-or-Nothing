@@ -10,8 +10,7 @@
   border-radius: 4px;
   background-color: #ffcccc;
   max-width: 500px;
-  font-size: 10px;
-  display: none; }
+  font-size: 10px; }
 
 /*SCREEN READER*/
 .sr-only {
@@ -219,5 +218,10 @@ input[type="number"] {
   .confirm-visible button {
     margin-left: auto;
     margin-right: auto; }
+
+#highscores {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #f2f2f2; }
 
 /*# sourceMappingURL=themes.css.map */
