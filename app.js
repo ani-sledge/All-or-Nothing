@@ -148,6 +148,29 @@ scoreCard.controller('GameController', ['$scope',
 				return false;
 			}
 		}
+		$scope.getPlace = function(num) {
+	        if (num == 1) {
+	          	return '1st';
+	        } else if (num == 2) {
+	          	return '2nd';
+	        } else if (num == 3) {
+	          	return '3rd';
+	        } else {
+	          	return num + "th";
+	        }
+      	}
+		$scope.gameOver = function() {
+			for (i = 0; i < $scope.players.length; i++) {
+				if ($scope.players[i].name == "") {
+					if ($scope.team) {
+						$scope.players[i].name = "Team " + (i + 1);
+					} else {
+						$scope.players[i].name = "Player " + (i + 1);
+					}
+				}
+			}
+			$scope.active = false;
+		}
 		$scope.advanceGame = function() {
 			if ($scope.round <= 10 && $scope.active) {
 				if ($scope.meetTotalTricks()) {
@@ -161,21 +184,17 @@ scoreCard.controller('GameController', ['$scope',
 						player.all = false;
 					}
 				} else {
-					alert("The total tricks for this round hasn't been met.");
+					alert("The total tricks for this round is incorrect.");
 				}
 			} else {
-				$scope.active = false;
+				$scope.gameOver();
 			}
 			for (i = 0; i < $scope.players.length; i++) {
 				if ($scope.players[i]['score'] <= 0) {
-					$scope.active = false;
+					$scope.gameOver();
 				}
 			} 
 		}
-
-		$scope.register = function() {
-		
-		};
 }]);
 
 
