@@ -1,22 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
   <head>
     <meta charset="UTF-8">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-    <!--JQuery, jQuery.ui-->
-    <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
-    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <title>All Or Nothing Scorecard</title>
+    <meta name='viewport' content='width=device-width, user-scalable=no'>
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
     <!--Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!--React-->
-    <script src="https://fb.me/react-0.13.3.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.29/browser.js"></script>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <title>All or Nothing Scorecard</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
-    <div id="main"></div>
-    <script src="script.js" type="text/babel"></script>
-  </body> 
+    <section id="main" ng-app="scoreCard" ng-controller="GameController">
+      <header class="container-fluid">
+        <h1>All Or Nothing <small class="hidden-xs">The game that makes you flip.</small></h1>
+      </header>
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <form class="navbar-form">
+              <div class="btn-group navbar-left" role="group">
+                <button id="prev-round" class="btn btn-lg btn-gold navbar-btn" 
+                ng-click="prevRound()">Previous</button>
+                <p class="btn btn-lg btn-non navbar-btn">Round: {{round}}</p>
+                <button id="next-round" class="btn btn-lg btn-gold navbar-btn" 
+                ng-click="advanceGame()">Next</button>
+              </div>
+              
+              <div class="navbar-right">
+                <div class="form-group">
+                  <input type='checkbox' name='team' 
+                    value='team'
+                    id='checkbox-team' class-"navbar-text"
+                    ng-model="team"
+                    ng-true-value='true'
+                    ng-false-value='false'
+                    ng-change="confirmTeam()"/>                   
+                  <label for='checkbox-team' class="navbar-text">Team Play</label>
+                </div>
+                <div class="form-group">
+                  <select name="player_count"
+                    id="player-count" class="navbar-text"
+                    ng-model="player_count"
+                    ng-change="confirmCount()"/>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                  </select>
+                  <label for="player-count" class="navbar-text">Total Players</label>
+                </div>
+                <button id="new-game" class="btn btn-lg btn-gold navbar-btn" 
+                ng-click="newGame()">New Game</button>
+              </div>
+            </form>
+          </div>
+      </nav><!--Navbar-->
+
+      <section id="activegame" ng-hide="!active">
+        <form name="game" novalidate>
+        <ul class="container-fluid">
+          <div class="row">
+          <li class="col-sm-6 col-md-4" ng-repeat="player in players">
+            <div class="players">
+            <span class="input-group">
+              <label class="sr-only" for="{{players.indexOf(player)}}-name">
+              Player: </label>
+              <input type='text' name='name' 
+              placeholder='{{getTeam()}} Name'
+              id='{{players.indexOf(player)}}-name'
+              class="inputname textfield"
+              ng-model="player.name"/>
+            </span>
+
+            <span class="input-group checkbox">
+              <input type='checkbox' name='all' 
+              value='all'
+              id='{{players.indexOf(player)}}-all' 
+              ng-model="player.all"
+              ng-true-value='true'
+              ng-false-value='false'
+              ng-change="setHasEdited(true)"/> 
+              <label for='{{players.indexOf(player)}}-all'>
+              {{getBid(player.all)}}</label>
+            </span>
+
+            <span class="input-group">
+              <label for='{{players.indexOf(player)}}-tricks'>
+              Tricks Taken: </label>
+              <input type='number' name='tricks'
+              placeholder='Tricks Taken'
+              id='{{players.indexOf(player)}}-tricks'
+              class="textfield"
+              min="0" max="{{tricksTotal()}}"
+              integer
+              ng-model="player.tricks" 
+              ng-change="validateTricks(player)"/>
+            </span>
+            <span class="form-group">
+              <p>Score: {{calculateScore(player.tricks, tricksTotal(), player.all, team)}}</p>
+            </span>
+            <span class="form-group">
+              <p>Total: {{player.score}}</p>
+            </span>
+            
+            <p><span class="{{currentDealer(players.indexOf(player))}}">Dealer</span></p>
+          </div>
+          </li>
+          </div>
+        </ul> 
+        </form>
+      </section>
+
+      <section id="highscores" class="panel panel-default col-sm-10 col-sm-offset-1" 
+      ng-hide="active">
+        <div class="panel-heading"><h2>Game Over</h2></div>
+        <div class="panel-body">
+        <ul class="list-group">
+          <li ng-repeat="player in players | orderBy:'+score'" class="list-group-item">
+            <h4 class="list-group-item-heading">{{getPlace(($index + 1))}} Place</h4>
+            <p>{{player.name}}</p>
+            <p>Score: {{player.score}}</p>
+          </li>
+        </ul>
+        <p>
+        </div>
+      </section>
+
+    </section>
+    <footer class="container-fluid">
+      <ul>
+        <li><a href="http://allornothingcards.blogspot.com/p/main.html">Learn More</a></li>
+        <li><a href="http://allornothingcards.blogspot.com/p/instructions.html">How to Play</a></li>
+        <li><a href="https://www.amazon.com/gp/product/B01BM3FUC6/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01BM3FUC6&linkCode=as2&tag=jmaink-20&linkId=LWA7CIUX2UQHJKMF">Buy on Amazon</a></li>
+      </ul>
+      <p>&#169; Jmars Inc. 2016</p>
+    </footer>
+</body>
 </html>
