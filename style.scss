@@ -1,6 +1,3 @@
-$dark: #372e29;
-$med: #726255;
-$lightgold: lighten(#f0c75e, 20%);
 $gold: #ecb939;
 $card: #d4d4d4;
 $base: #2a2a2a;
@@ -8,7 +5,7 @@ $base: #2a2a2a;
 $text: #fefefe;
 $body: black;
 $header: black;
-$footer: lighten(desaturate($dark, 15%), 15%);
+$footer: lighten(desaturate(#372e29, 15%), 15%);
 
 $thick: 3px;
 $radius: 0;
