@@ -68,11 +68,11 @@ scoreCard.controller('GameController', ['$scope',
 
 		$scope.currentDealer = function(index) {
 			if ($scope.round == index + 1) {
-				return 'Dealer';
+				return 'dealer';
 			} else if ($scope.round - $scope.players.length == index + 1) {
-				return 'Dealer';
+				return 'dealer';
 			} else {
-				return "-----";
+				return "notdealer";
 			}
 		}
 
@@ -133,7 +133,7 @@ scoreCard.controller('GameController', ['$scope',
 		}
 
 		$scope.prevRound = function() {
-			if ($scope.active && $scope.round > 0) {
+			if ($scope.active && $scope.round > 1) {
 				$scope.round -= 1;
 			}
 		}

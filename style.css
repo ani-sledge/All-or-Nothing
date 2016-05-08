@@ -1,0 +1,160 @@
+/*RESETS*/
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: black; }
+
+#main, #highscores {
+  margin-bottom: 100px; }
+
+p, .players label, input, footer {
+  font-size: 1.6em;
+  font-weight: normal; }
+
+h2 {
+  font-size: 2.5em; }
+
+h3, h4, .inputname {
+  margin: 0;
+  padding: 0;
+  font-size: 2em; }
+
+h1 {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 3em; }
+
+a {
+  padding: 5px 10px;
+  font-variant: small-caps;
+  text-decoration: none;
+  color: #ecb939;
+  border: 3px solid #3d3d3d;
+  border-radius: 0; }
+  a:hover {
+    text-decoration: none;
+    color: #ecb939;
+    border-color: #ecb939; }
+
+/*HEADER*/
+header {
+  color: #fff;
+  background-color: black; }
+
+/*NAVIGATION*/
+@media (min-width: 768px) {
+  .navbar-form {
+    padding-left: 0; }
+
+  #player-count {
+    margin-left: 0;
+    margin-right: 0; } }
+@media (max-width: 767px) {
+  #checkbox-team, #player-count {
+    margin-right: 15px; } }
+.navbar {
+  margin-bottom: 0;
+  border-width: 3px;
+  border-radius: 0; }
+
+.navbar-btn {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 0;
+  border-width: 3px;
+  font-variant: small-caps; }
+
+.navbar-text {
+  float: none; }
+
+.btn-default:hover {
+  background-color: #fff;
+  color: #ecb939;
+  border-color: #ecb939; }
+
+.btn-non {
+  border-top: 3px solid #ccc;
+  border-bottom: 3px solid #ccc; }
+
+/*MAIN GAME PLAY*/
+#activegame {
+  padding-top: 20px; }
+  #activegame li {
+    list-style: none; }
+
+.players {
+  margin-bottom: 15px;
+  padding: 15px;
+  text-align: center;
+  background-color: #f4f4f4;
+  border: 3px solid #f4f4f4;
+  border-radius: 0; }
+  .players .input-group, .players .form-group {
+    margin: 5px auto; }
+  .players input[type="number"] {
+    width: 60px; }
+  .players input[type="checkbox"], .players select {
+    margin: 8px 0;
+    left: 30%; }
+
+.form-group label, .form-group input {
+  display: inline;
+  vertical-align: middle; }
+
+.input-group.checkbox {
+  width: 100%; }
+  .input-group.checkbox label {
+    padding-left: 0; }
+
+.textfield {
+  width: 100%;
+  padding: 5px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  border: 3px solid #f4f4f4;
+  border-radius: 0;
+  outline: 0; }
+  .textfield:focus {
+    border-color: #ecb939; }
+
+.dealer, .notdealer {
+  color: #ecb939;
+  font-variant: small-caps;
+  padding: 5px 10px;
+  font-weight: normal;
+  border: 3px solid #ecb939; }
+
+.notdealer {
+  visibility: hidden; }
+
+/*GAME OVER*/
+#highscores {
+  text-align: center;
+  background-color: black;
+  border-color: black; }
+  #highscores .panel-heading {
+    color: #fff;
+    background-color: black;
+    border-color: black; }
+
+/*Footer*/
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  background-color: #3d3d3d; }
+  footer ul {
+    padding-top: 40px; }
+  footer li {
+    display: inline;
+    list-style: none;
+    margin: 0 15px; }
+
+/*# sourceMappingURL=style.css.map */

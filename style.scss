@@ -1,0 +1,217 @@
+$dark: #372e29;
+$med: #726255;
+$lightgold: lighten(#f0c75e, 20%);
+$gold: #ecb939;
+$card: #f4f4f4;
+$body: black;
+$header: black;
+$footer: lighten(desaturate($dark, 15%), 5%);
+
+$thick: 3px;
+$radius: 0;
+$font: Arial, sans-serif;
+$fontlg: 3em;
+$fontmd: 2em;
+$fontsm: 1.6em;
+
+@mixin goldhover {
+	color: #fff;
+	background-color: $gold;
+}
+
+/*RESETS*/
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+    min-height: 100%;
+	font-family: $font;
+	background-color: $body;
+}
+#main, #highscores {	
+	margin-bottom: 100px;
+}
+p, .players label, input, footer {
+	font-size: $fontsm;
+	font-weight: normal;
+}
+h2 { font-size: 2.5em; }
+h3, h4, .inputname {
+	margin: 0;
+	padding: 0;
+	font-size: $fontmd;
+}
+h1 {
+	margin-top: 50px;
+	margin-bottom: 30px;
+	font-size: $fontlg;
+}
+a {
+	padding: 5px 10px;
+	font-variant: small-caps;
+	text-decoration: none;
+	color: $gold;
+	border: $thick solid $footer;
+	border-radius: $radius;
+	&:hover {
+		text-decoration: none;
+		color: $gold;
+		border-color: $gold;
+	}
+}
+
+/*HEADER*/
+header {
+	color: #fff;
+	background-color: $header;
+}
+
+/*NAVIGATION*/
+@media (min-width: 768px) {
+	.navbar-form {
+		padding-left: 0;
+	}
+	#player-count {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+@media (max-width: 767px) {
+	#checkbox-team, #player-count {
+		margin-right: 15px;
+	}	
+}
+.navbar {
+	margin-bottom: 0;
+	border-width: $thick;
+	border-radius: $radius;
+}
+.navbar-btn {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border-radius: $radius;
+	border-width: $thick;
+	font-variant: small-caps;
+}
+.navbar-text {
+	float: none;
+}
+.btn-default {
+	&:hover {
+		background-color: #fff;
+		color: $gold;
+		border-color: $gold;
+	}
+}
+
+.btn-non {
+	border-top: $thick solid #ccc;
+	border-bottom: $thick solid #ccc;
+}
+
+/*MAIN GAME PLAY*/
+#activegame {
+	padding-top: 20px;
+  	li {
+		list-style: none;
+	}
+}
+.players {
+	margin-bottom: 15px;
+	padding: 15px;
+	text-align: center;
+	.input-group, .form-group {
+		margin: 5px auto;
+	}
+	background-color: $card;
+	border: $thick solid $card;
+	border-radius: $radius;
+	input[type="number"] {
+    	width: 60px; 
+    }
+	input[type="checkbox"], select {
+		margin: 8px 0;
+		left: 30%;
+	}
+}
+.form-group {
+	label, input {
+		display: inline;
+		vertical-align: middle;
+	}
+}
+.input-group.checkbox {
+	width: 100%;
+	label {
+		padding-left: 0;
+	}
+}
+
+.textfield {
+	width: 100%;
+	padding: 5px;
+	font-family: $font;
+	text-align: center;
+	background-color: $card;
+	border: $thick solid $card;
+	border-radius: $radius;
+	outline: 0; 
+	&:focus {
+	border-color: $gold; 
+	}
+}
+.dealer, .notdealer {
+	color: $gold;
+	font-variant: small-caps;
+	padding: 5px 10px;
+	font-weight: normal; 
+	border: $thick solid $gold;
+}
+.notdealer {
+	visibility: hidden;
+}
+
+/*GAME OVER*/
+#highscores {
+	text-align: center;
+	background-color: black;
+	border-color: black;
+	.panel-heading {
+		color: #fff;
+		background-color: black;
+		border-color: black;
+	}
+}
+
+/*Footer*/
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+	background-color: $footer;
+	ul {
+		padding-top: 40px;
+	}
+	li {
+		display: inline;
+		list-style: none;
+		margin: 0 15px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
