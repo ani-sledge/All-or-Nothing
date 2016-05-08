@@ -1,3 +1,4 @@
+/*#f2f2f2;*/
 /*RESETS*/
 html {
   position: relative;
@@ -6,11 +7,8 @@ html {
 body {
   min-height: 100%;
   font-family: Arial, sans-serif;
-  background-color: #282828;
-  color: #f2f2f2; }
-
-#main, #highscores {
-  margin-bottom: 100px; }
+  background-color: #d4d4d4;
+  color: #fefefe; }
 
 p, .players label, input, footer {
   font-size: 1.6em;
@@ -25,8 +23,8 @@ h3, h4, .inputname {
   font-size: 2em; }
 
 h1 {
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 80px;
+  margin-bottom: 40px;
   font-size: 3em; }
 
 a {
@@ -34,7 +32,7 @@ a {
   font-variant: small-caps;
   text-decoration: none;
   color: #ecb939;
-  border: 3px solid #3d3d3d;
+  border: 3px solid #565656;
   border-radius: 0; }
   a:hover {
     text-decoration: none;
@@ -43,7 +41,10 @@ a {
 
 /*HEADER*/
 header {
+  font: "Lato", Arial, sans-serif;
   background-color: black; }
+  header small {
+    color: #ecb939; }
 
 /*NAVIGATION*/
 @media (min-width: 768px) {
@@ -52,7 +53,19 @@ header {
 
   #player-count {
     margin-left: 0;
-    margin-right: 0; } }
+    margin-right: 0; }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    height: 100px; }
+
+  #main, #highscores {
+    margin-bottom: 100px; }
+
+  footer li {
+    display: inline;
+    margin: 0 15px; } }
 @media (max-width: 767px) {
   #checkbox-team, #player-count {
     margin-right: 15px; } }
@@ -60,32 +73,28 @@ header {
   margin-bottom: 0; }
 
 .navbar-inverse {
-  background-color: #282828;
-  border-width: 3px;
+  background-color: #2a2a2a;
+  border-bottom: 3px solid #ecb939;
   border-radius: 0; }
 
 .navbar-btn {
   margin-top: 15px;
   margin-bottom: 15px;
+  border: 3px solid #2a2a2a;
   border-radius: 0;
-  border-width: 3px;
   font-variant: small-caps; }
   .navbar-btn:hover {
-    color: #f2f2f2; }
+    color: #fefefe; }
 
 .navbar-text {
   float: none; }
 
 .btn-gold {
-  background-color: #282828;
-  border: 3px solid #f2f2f2; }
+  background-color: #2a2a2a;
+  border: 3px solid #fefefe; }
   .btn-gold:hover {
     color: #ecb939;
     border-color: #ecb939; }
-
-.btn-non {
-  border-top: 3px solid #ccc;
-  border-bottom: 3px solid #ccc; }
 
 /*MAIN GAME PLAY*/
 #activegame {
@@ -97,8 +106,8 @@ header {
   margin-bottom: 15px;
   padding: 15px;
   text-align: center;
-  background-color: #282828;
-  border: 3px solid #f2f2f2;
+  background-color: #373737;
+  border: 3px solid #fefefe;
   border-radius: 0; }
   .players .input-group, .players .form-group {
     margin: 5px auto; }
@@ -122,8 +131,8 @@ header {
   padding: 5px;
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #282828;
-  border: 3px solid #282828;
+  background-color: #373737;
+  border: 3px solid #373737;
   border-radius: 0;
   outline: 0; }
   .textfield:focus {
@@ -142,26 +151,28 @@ header {
 /*GAME OVER*/
 #highscores {
   text-align: center;
-  background-color: #282828;
-  border-color: #282828; }
+  margin-top: 15px;
+  background-color: #2a2a2a;
+  border: 3px solid #fefefe;
+  border-radius: 0; }
   #highscores .panel-heading {
     color: #fff;
-    background-color: #282828;
-    border-color: #282828; }
+    background-color: #2a2a2a;
+    border: 3px solid #2a2a2a; }
+  #highscores .list-group {
+    color: #2a2a2a; }
 
 /*Footer*/
 footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  height: 100px;
+  margin-top: 15px;
   text-align: center;
-  background-color: #3d3d3d; }
+  background-color: #565656; }
   footer ul {
-    padding-top: 40px; }
+    padding-left: 0;
+    padding-top: 30px; }
   footer li {
-    display: inline;
     list-style: none;
-    margin: 0 15px; }
+    margin: 10px 0; }
 
 /*# sourceMappingURL=style.css.map */

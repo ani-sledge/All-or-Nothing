@@ -2,12 +2,13 @@ $dark: #372e29;
 $med: #726255;
 $lightgold: lighten(#f0c75e, 20%);
 $gold: #ecb939;
-$card: #f4f4f4;
-$base: #282828;
-$text: #f2f2f2;
+$card: #d4d4d4;
+$base: #2a2a2a;
+/*#f2f2f2;*/
+$text: #fefefe;
 $body: black;
 $header: black;
-$footer: lighten(desaturate($dark, 15%), 5%);
+$footer: lighten(desaturate($dark, 15%), 15%);
 
 $thick: 3px;
 $radius: 0;
@@ -29,12 +30,10 @@ html {
 body {
     min-height: 100%;
 	font-family: $font;
-	background-color: $base;
+	background-color: $card;
 	color: $text;
 }
-#main, #highscores {	
-	margin-bottom: 100px;
-}
+
 p, .players label, input, footer {
 	font-size: $fontsm;
 	font-weight: normal;
@@ -46,8 +45,8 @@ h3, h4, .inputname {
 	font-size: $fontmd;
 }
 h1 {
-	margin-top: 50px;
-	margin-bottom: 30px;
+	margin-top: 80px;
+	margin-bottom: 40px;
 	font-size: $fontlg;
 }
 a {
@@ -66,7 +65,11 @@ a {
 
 /*HEADER*/
 header {
+	font: 'Lato', $font;
 	background-color: $header;
+	small {
+		color: $gold;
+	}
 }
 
 /*NAVIGATION*/
@@ -77,6 +80,18 @@ header {
 	#player-count {
 		margin-left: 0;
 		margin-right: 0;
+	}
+	footer {
+		position: absolute;
+		bottom: 0;
+		height: 100px;
+	}
+	#main, #highscores {	
+		margin-bottom: 100px;
+	}
+	footer li {
+		display: inline;
+		margin: 0 15px;
 	}
 }
 @media (max-width: 767px) {
@@ -89,14 +104,14 @@ header {
 }
 .navbar-inverse {
 	background-color: $base;
-	border-width: $thick;
+	border-bottom: $thick solid $gold;
 	border-radius: $radius;
 }
 .navbar-btn {
 	margin-top: 15px;
 	margin-bottom: 15px;
+	border: $thick solid $base;
 	border-radius: $radius;
-	border-width: $thick;
 	font-variant: small-caps;
 	&:hover {
 		color: $text;
@@ -114,11 +129,6 @@ header {
 	}
 }
 
-.btn-non {
-	border-top: $thick solid #ccc;
-	border-bottom: $thick solid #ccc;
-}
-
 /*MAIN GAME PLAY*/
 #activegame {
 	padding-top: 20px;
@@ -133,7 +143,7 @@ header {
 	.input-group, .form-group {
 		margin: 5px auto;
 	}
-	background-color: $base;
+	background-color: lighten($base, 5%);
 	border: $thick solid $text;
 	border-radius: $radius;
 	input[type="number"] {
@@ -162,8 +172,8 @@ header {
 	padding: 5px;
 	font-family: $font;
 	text-align: center;
-	background-color: $base;
-	border: $thick solid $base;
+	background-color: lighten($base, 5%);
+	border: $thick solid lighten($base, 5%);
 	border-radius: $radius;
 	outline: 0; 
 	&:focus {
@@ -184,30 +194,33 @@ header {
 /*GAME OVER*/
 #highscores {
 	text-align: center;
+	margin-top: 15px;
 	background-color: $base;
-	border-color: $base;
+	border: $thick solid $text;
+	border-radius: $radius;
 	.panel-heading {
 		color: #fff;
 		background-color: $base;
-		border-color: $base;
+		border: $thick solid $base;
+	}
+	.list-group {
+		color: $base;
 	}
 }
 
 /*Footer*/
 footer {
-	position: absolute;
-	bottom: 0;
 	width: 100%;
-	height: 100px;
+	margin-top: 15px;
 	text-align: center;
 	background-color: $footer;
 	ul {
-		padding-top: 40px;
+		padding-left: 0;
+		padding-top: 30px;
 	}
 	li {
-		display: inline;
 		list-style: none;
-		margin: 0 15px;
+		margin: 10px 0;
 	}
 }
 
