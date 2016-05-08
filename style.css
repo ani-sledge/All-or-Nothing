@@ -6,7 +6,8 @@ html {
 body {
   min-height: 100%;
   font-family: Arial, sans-serif;
-  background-color: black; }
+  background-color: #282828;
+  color: #f2f2f2; }
 
 #main, #highscores {
   margin-bottom: 100px; }
@@ -42,7 +43,6 @@ a {
 
 /*HEADER*/
 header {
-  color: #fff;
   background-color: black; }
 
 /*NAVIGATION*/
@@ -57,7 +57,10 @@ header {
   #checkbox-team, #player-count {
     margin-right: 15px; } }
 .navbar {
-  margin-bottom: 0;
+  margin-bottom: 0; }
+
+.navbar-inverse {
+  background-color: #282828;
   border-width: 3px;
   border-radius: 0; }
 
@@ -67,14 +70,18 @@ header {
   border-radius: 0;
   border-width: 3px;
   font-variant: small-caps; }
+  .navbar-btn:hover {
+    color: #f2f2f2; }
 
 .navbar-text {
   float: none; }
 
-.btn-default:hover {
-  background-color: #fff;
-  color: #ecb939;
-  border-color: #ecb939; }
+.btn-gold {
+  background-color: #282828;
+  border: 3px solid #f2f2f2; }
+  .btn-gold:hover {
+    color: #ecb939;
+    border-color: #ecb939; }
 
 .btn-non {
   border-top: 3px solid #ccc;
@@ -90,8 +97,8 @@ header {
   margin-bottom: 15px;
   padding: 15px;
   text-align: center;
-  background-color: #f4f4f4;
-  border: 3px solid #f4f4f4;
+  background-color: #282828;
+  border: 3px solid #f2f2f2;
   border-radius: 0; }
   .players .input-group, .players .form-group {
     margin: 5px auto; }
@@ -115,8 +122,8 @@ header {
   padding: 5px;
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f4f4f4;
-  border: 3px solid #f4f4f4;
+  background-color: #282828;
+  border: 3px solid #282828;
   border-radius: 0;
   outline: 0; }
   .textfield:focus {
@@ -135,12 +142,12 @@ header {
 /*GAME OVER*/
 #highscores {
   text-align: center;
-  background-color: black;
-  border-color: black; }
+  background-color: #282828;
+  border-color: #282828; }
   #highscores .panel-heading {
     color: #fff;
-    background-color: black;
-    border-color: black; }
+    background-color: #282828;
+    border-color: #282828; }
 
 /*Footer*/
 footer {

@@ -3,6 +3,8 @@ $med: #726255;
 $lightgold: lighten(#f0c75e, 20%);
 $gold: #ecb939;
 $card: #f4f4f4;
+$base: #282828;
+$text: #f2f2f2;
 $body: black;
 $header: black;
 $footer: lighten(desaturate($dark, 15%), 5%);
@@ -27,7 +29,8 @@ html {
 body {
     min-height: 100%;
 	font-family: $font;
-	background-color: $body;
+	background-color: $base;
+	color: $text;
 }
 #main, #highscores {	
 	margin-bottom: 100px;
@@ -63,7 +66,6 @@ a {
 
 /*HEADER*/
 header {
-	color: #fff;
 	background-color: $header;
 }
 
@@ -84,6 +86,9 @@ header {
 }
 .navbar {
 	margin-bottom: 0;
+}
+.navbar-inverse {
+	background-color: $base;
 	border-width: $thick;
 	border-radius: $radius;
 }
@@ -93,13 +98,17 @@ header {
 	border-radius: $radius;
 	border-width: $thick;
 	font-variant: small-caps;
+	&:hover {
+		color: $text;
+	}
 }
 .navbar-text {
 	float: none;
 }
-.btn-default {
+.btn-gold {
+	background-color: $base;
+	border: $thick solid $text;
 	&:hover {
-		background-color: #fff;
 		color: $gold;
 		border-color: $gold;
 	}
@@ -124,8 +133,8 @@ header {
 	.input-group, .form-group {
 		margin: 5px auto;
 	}
-	background-color: $card;
-	border: $thick solid $card;
+	background-color: $base;
+	border: $thick solid $text;
 	border-radius: $radius;
 	input[type="number"] {
     	width: 60px; 
@@ -153,8 +162,8 @@ header {
 	padding: 5px;
 	font-family: $font;
 	text-align: center;
-	background-color: $card;
-	border: $thick solid $card;
+	background-color: $base;
+	border: $thick solid $base;
 	border-radius: $radius;
 	outline: 0; 
 	&:focus {
@@ -175,12 +184,12 @@ header {
 /*GAME OVER*/
 #highscores {
 	text-align: center;
-	background-color: black;
-	border-color: black;
+	background-color: $base;
+	border-color: $base;
 	.panel-heading {
 		color: #fff;
-		background-color: black;
-		border-color: black;
+		background-color: $base;
+		border-color: $base;
 	}
 }
 
