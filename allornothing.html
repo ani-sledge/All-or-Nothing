@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link href="anstyle.css" rel="stylesheet" type="text/css">
+    <link href="anstyle.min.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app.min.js"></script>
   </head>
   <body>
     <section id="main" ng-app="scoreCard" ng-controller="GameController">
@@ -21,56 +21,40 @@
       </header>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#aorn-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <form class="navbar-form">
-              <div class="btn-group navbar-left" role="group">
-                <button id="prev-round" class="btn btn-lg btn-gold navbar-btn" 
-                ng-click="prevRound()">Previous</button>
-                <p class="btn btn-lg btn-non navbar-btn">Round: {{round}}</p>
-                <button id="next-round" class="btn btn-lg btn-gold navbar-btn" 
-                ng-click="advanceGame()">Next</button>
+          <form class="navbar-form">
+            <div class="navbar-left">
+              <button id="new-game" class="btn btn-lg btn-gold navbar-btn" 
+              ng-click="newGame()">New Game</button>
+              <div class="form-group">
+                <select name="player_count"
+                  id="player-count" class="navbar-text"
+                  ng-model="player_count"
+                  ng-change="confirmCount()"/>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+                <label for="player-count" class="navbar-text">Total Players</label>
               </div>
-            </form>
-          </div>
-        <div class="collapse navbar-collapse" id="aorn-collapse-1">
-          <ul class="nav navbar-nav">
-            <form class="navbar-form">
-              <div class="navbar-right">
-                <div class="form-group">
-                  <input type='checkbox' name='team' 
-                    value='team'
-                    id='checkbox-team' class-"navbar-text"
-                    ng-model="team"
-                    ng-true-value='true'
-                    ng-false-value='false'
-                    ng-change="confirmTeam()"/>                   
-                  <label for='checkbox-team' class="navbar-text">Team Play</label>
-                </div>
-                <div class="form-group">
-                  <select name="player_count"
-                    id="player-count" class="navbar-text"
-                    ng-model="player_count"
-                    ng-change="confirmCount()"/>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                  </select>
-                  <label for="player-count" class="navbar-text">Total Players</label>
-                </div>
-                  <button id="new-game" class="btn btn-lg btn-gold navbar-btn" 
-                ng-click="newGame()">New Game</button>
-                </div>
-              </form>
-            </ul>
-          </div>
+              <div class="form-group">
+                <input type='checkbox' name='team' 
+                  value='team'
+                  id='checkbox-team' class-"navbar-text"
+                  ng-model="team"
+                  ng-true-value='true'
+                  ng-false-value='false'
+                  ng-change="confirmTeam()"/>                   
+                <label for='checkbox-team' class="navbar-text">Team Play</label>
+              </div>
+            </div>
+            <div class="btn-group navbar-right" role="group">
+              <p class="btn btn-lg btn-non navbar-btn">Round: {{round}}</p>
+              <button id="next-round" class="btn btn-lg btn-gold navbar-btn" 
+              ng-click="advanceGame()">Next</button>
+            </div>
+          </form>
         </div>
       </nav><!--Navbar-->
 
