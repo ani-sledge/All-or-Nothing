@@ -6,7 +6,7 @@
     <meta name='viewport' content='width=device-width, user-scalable=no'>
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
-    <!--Bootstrap -->
+    <!--Bootstrap -->  
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
@@ -17,7 +17,7 @@
   <body>
     <section id="main" ng-app="scoreCard" ng-controller="GameController">
       <header class="container-fluid">
-        <h1>All Or Nothing <small class="hidden-xs">The game that makes you flip.</small></h1>
+        <h1>All Or Nothing Scorecard<small class="hidden-xs"> The game that makes you flip.</small></h1>
       </header>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -30,11 +30,7 @@
                   id="player-count" class="navbar-text"
                   ng-model="player_count"
                   ng-change="confirmCount()"/>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
+                  <option ng-repeat="num in teamOptions()" value="{{num}}">{{num}}</option>
                 </select>
                 <label for="player-count" class="navbar-text">Total Players</label>
               </div>
@@ -86,18 +82,17 @@
               {{getBid(player.all)}}</label>
             </span>
 
-            <span class="input-group">
+            <span class="form-group">
               <label for='{{players.indexOf(player)}}-tricks'>
-              Tricks Taken: </label>
-              <input type='number' name='tricks'
-              placeholder='Tricks Taken'
+              Tricks Taken: </label>  
+              <select name='tricks'
               id='{{players.indexOf(player)}}-tricks'
-              class="textfield"
-              min="0" max="{{tricksTotal()}}"
-              integer
-              ng-model="player.tricks" 
-              ng-change="validateTricks(player)"/>
+              ng-model="player.tricks"
+              ng-change="setHasEdited(true)">
+                 <option ng-repeat="num in trickOptions()" value="{{num}}">{{num}}</option>
+              </select>
             </span>
+
             <span class="form-group">
               <p>Score: {{calculateScore(player.tricks, tricksTotal(), player.all, team)}}</p>
             </span>
