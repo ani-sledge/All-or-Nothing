@@ -31,6 +31,14 @@ body {
 	color: $text;
 }
 
+.debug {
+	color: red;
+	font-size: 0.6em;
+	background-color: lighten(red, 30%);
+	border: 2px solid red;
+	border-radius: $radius;
+}
+
 p, .players label, input, footer {
 	font-size: $fontsm;
 	font-weight: normal;

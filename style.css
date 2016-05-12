@@ -10,6 +10,13 @@ body {
   background-color: #e1e1e1;
   color: #fafafa; }
 
+.debug {
+  color: red;
+  font-size: 0.6em;
+  background-color: #ff9999;
+  border: 2px solid red;
+  border-radius: 6px; }
+
 p, .players label, input, footer {
   font-size: 1.6em;
   font-weight: normal; }
@@ -57,10 +64,6 @@ header {
   #player-count {
     margin-left: 0;
     margin-right: 0; }
-
-  .players input[type="checkbox"] {
-    margin: 8px 0;
-    left: 30%; }
 
   footer {
     position: absolute;
@@ -124,6 +127,9 @@ header {
     margin: 5px auto; }
   .players input[type="number"] {
     width: 60px; }
+  .players input[type="checkbox"] {
+    margin: 8px 0;
+    left: 30%; }
 
 .form-group label, .form-group input {
   display: inline;
