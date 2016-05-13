@@ -7,9 +7,8 @@ scoreCard.controller('GameController', ['$scope',
 		$scope.team = false;
 		$scope.has_edited_game = false;
 		$scope.player_count = "4";
-		$scope.debug = "";
 		$scope.options = [2, 3, 4, 5, 6];
-
+		$scope.debug = "";
 
 		function Player() {
 			this.name = "";
@@ -88,8 +87,8 @@ scoreCard.controller('GameController', ['$scope',
 				$scope.confirm = confirm("This action will cause the game to reset.\nDo you want to continue?");
 				if ($scope.confirm) {
 					$scope.restart();
-				} else {
-					$scope.player_count = $scope.players.length; 
+				} else { 
+					$scope.player_count = String($scope.players.length);
 				}
 			} else {
 				$scope.restart();
