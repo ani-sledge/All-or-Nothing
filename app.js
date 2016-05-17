@@ -3,6 +3,7 @@ var scoreCard = angular.module('scoreCard', []);
 scoreCard.controller('GameController', ['$scope',
 	function($scope) {
 		$scope.active = true;
+		$scope.instructions = false;
 		$scope.round = 1;
 		$scope.team = false;
 		$scope.has_edited_game = false;
@@ -165,6 +166,14 @@ scoreCard.controller('GameController', ['$scope',
 				return false;
 			}
 		}
+		$scope.showInstructions = function() {
+			$scope.instructions = true;
+		}
+
+		$scope.hideInstructions = function() {
+			$scope.instructions = false;
+		}
+
 		$scope.getPlace = function(num) {
 	        if (num == 1) {
 	          	return '1st';

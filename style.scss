@@ -206,17 +206,19 @@ header {
 }
 
 /*GAME OVER*/
-#highscores {
-	text-align: center;
+#highscores, #instructions {
 	margin-top: 15px;
 	background-color: $base;
-	border: $thick solid $text;
+	border: $thick solid $text;	
 	border-radius: $radius;
 	.panel-heading {
 		color: #fff;
 		background-color: $base;
 		border: $thick solid $base;
 	}
+}
+#highscores {
+	text-align: center;
 	.list-group {
 		color: $base;
 	}

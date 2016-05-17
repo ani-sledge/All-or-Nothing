@@ -164,16 +164,18 @@ header {
   visibility: hidden; }
 
 /*GAME OVER*/
-#highscores {
-  text-align: center;
+#highscores, #instructions {
   margin-top: 15px;
   background-color: #444444;
   border: 3px solid #fafafa;
   border-radius: 6px; }
-  #highscores .panel-heading {
+  #highscores .panel-heading, #instructions .panel-heading {
     color: #fff;
     background-color: #444444;
     border: 3px solid #444444; }
+
+#highscores {
+  text-align: center; }
   #highscores .list-group {
     color: #444444; }
 
