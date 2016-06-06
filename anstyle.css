@@ -8,6 +8,14 @@ body {
   background-color: #e1e1e1;
   color: #fafafa; }
 
+.aria-only {
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border: none; }
+
 p {
   font-size: 1.6em;
   font-weight: normal; }

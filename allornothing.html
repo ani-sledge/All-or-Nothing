@@ -124,6 +124,7 @@
       <section id="instructions" 
       class="panel panel-default col-sm-10 col-sm-offset-1"
       ng-hide="!instructions">
+        <a name="Instructions" class="aria-only"></a>
         <div class="panel-heading">
           <h2>Instructions</h2> 
           <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="hideInstructions()"></span>
@@ -139,8 +140,8 @@
           <p>After each round of play, count the tricks each player or team took. Use the dropdown labeled “Tricks Taken” to enter that number for each player or team. After all of the tricks have been entered, select the “Next” button to move to the next round. The “Total” will be updated to show each player’s or team’s score.</p>
           <h3>Ending a Game</h3>
           <p>When “Next” is selected after the tenth round of play, or anytime a player or team gets to 0, the final scores and positions will be displayed. To start a new game, select the “New Game” button. Change the number of players, teams or player names as desired.</p>
-              <div><a href="#">Learn more about All or Nothing.</a></div>
-              <div><a href="#">How to play All or Nothing.</a></div>
+              <div><a href="http://allornothingcards.blogspot.com/p/main.html">Learn more about All or Nothing.</a></div>
+              <div><a href="http://allornothingcards.blogspot.com/p/instructions.html">How to play All or Nothing.</a></div>
         </div>
       </section>
 
@@ -148,8 +149,8 @@
     <footer class="container-fluid">
       <ul>
         <li><a href="http://allornothingcards.blogspot.com/p/main.html">Learn More</a></li>
-        <li><a href="https://www.amazon.com/gp/product/B01BM3FUC6/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01BM3FUC6&linkCode=as2&tag=jmaink-20&linkId=LWA7CIUX2UQHJKMF">Buy the Card Game</a></li>
-        <li><span class="a" ng-click="showInstructions()">Instructions</span></li>
+        <li><a href="http://www.amazon.com/gp/product/B01BM3FUC6/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01BM3FUC6&linkCode=as2&tag=jmaink-20&linkId=LWA7CIUX2UQHJKMF">Buy the Card Game</a></li>
+        <li><a href="#Instructions" ng-click="showInstructions()">Instructions</a></li>
       </ul>
       <p>&#169; Jmars Inc. 2016</p>
     </footer>
