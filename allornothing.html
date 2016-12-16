@@ -4,63 +4,71 @@
     <meta charset="UTF-8">
     <title>All Or Nothing Scorecard</title>
     <meta name='viewport' content='width=device-width, user-scalable=no'>
+    <!--Styles-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="stylesheets/materialize.css" rel="stylesheet" type="text/css">
+    
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
-    <!--Bootstrap -->  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link href="anstyle.min.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="app.min.js"></script>
   </head>
   <body ng-app="scoreCard" ng-controller="GameController">
-    <section id="main">
-      <header class="container-fluid">
-        <h1>All Or Nothing<small> Scorecard</small></h1>
+      <header>
+        <div class="container">
+          <h1>All Or Nothing<small> Scorecard</small></h1>
+        </div>
       </header>
-      <nav class="navbar navbar-inverse" ng-click="hideInstructions()">
-        <div class="container-fluid">
-          <form class="navbar-form">
-            <div class="navbar-left">
-              <button id="new-game" class="btn btn-lg btn-gold navbar-btn" 
+      <main>
+      <nav ng-click="hideInstructions()">
+        <div class="nav-wrapper">
+          <div class="container">
+            <div class="form-group">
+              <button id="new-game" class="btn" 
               ng-click="newGame()">New Game</button>
-              <div class="form-group">
-                <select name="player_count"
-                  id="player-count"
-                  ng-model="player_count"
-                  ng-change="confirmCount()"/>
-                  <option ng-repeat="num in teamOptions()" value="{{num}}">{{num}}</option>
-                </select>
-                <label for="player-count" class="navbar-text">Total {{getTeam()}}s</label>
-              </div>
-              <div class="form-group">
-                <input type='checkbox' name='team' 
-                  value='team'
-                  id='checkbox-team' class-"navbar-text"
-                  ng-model="team"
-                  ng-true-value='true'
-                  ng-false-value='false'
-                  ng-change="confirmTeam()"/>                   
-                <label for='checkbox-team' class="navbar-text">Team Play</label>
-              </div>
             </div>
-            <div class="btn-group navbar-right" role="group">
-              <p class="btn btn-lg btn-non navbar-btn">Round: {{round}}</p>
-              <button id="next-round" class="btn btn-lg btn-gold navbar-btn" 
+
+            <div class="form-group">
+              <select name="player_count"
+                id="player-count"
+                ng-model="player_count"
+                ng-change="confirmCount()"/>
+                <option ng-repeat="num in teamOptions()" value="{{num}}">{{num}}</option>
+              </select>
+              <label for="player-count" class="navbar-text">Total {{getTeam()}}s</label>
+            </div>
+
+            <div class="form-group">
+              <input type='checkbox' name='team' 
+                value='team'
+                id='checkbox-team' class-"navbar-text"
+                ng-model="team"
+                ng-true-value='true'
+                ng-false-value='false'
+                ng-change="confirmTeam()"/>                   
+              <label for='checkbox-team' class="navbar-text">Team Play</label>
+            </div>
+
+            <div class="form-group" id="last-group">
+            <label class="round">Round: {{round}}</label>
+              <button id="next-round" class="btn" 
               ng-click="advanceGame()">Next</button>
             </div>
-          </form>
+          </div>
         </div>
       </nav><!--Navbar-->
+
       <section id="activegame" ng-hide="!active || instructions">
         <form name="game" novalidate>
-        <ul class="container-fluid">
+        <ul class="container">
           <div class="row">
-          <li class="col-sm-6 col-md-4" ng-repeat="player in players">
-            <div class="players">
+          <div class="col s12 m6 l4"></div>
+          <li class="col s12 m6 l4" ng-repeat="player in players">
+            <div class="players card">
+            <div class="card-content">
             <span class="input-group">
-              <label class="sr-only" for="{{players.indexOf(player)}}-name">
+              <label class="aria-only" for="{{players.indexOf(player)}}-name">
               Player: </label>
               <input type='text' name='name' 
               placeholder='{{getTeam()}} Name'
@@ -69,37 +77,56 @@
               ng-model="player.name"/>
             </span>
 
-            <span class="input-group checkbox">
+            <span>
               <input type='checkbox' name='all' 
               value='all'
               id='{{players.indexOf(player)}}-all' 
               ng-model="player.all"
               ng-true-value='true'
               ng-false-value='false'
-              ng-change="setHasEdited(true)"/> 
+              ng-change="setHasEdited(true)"/>
               <label for='{{players.indexOf(player)}}-all'>
               {{getBid(player.all)}}</label>
             </span>
-
-            <span class="form-group">
+            <table class="bordered">
+            </tr>
+            <tr>
+              <td>
               <label for='{{players.indexOf(player)}}-tricks'>
               Tricks Taken: </label>  
+              </td>
+              <td>
               <select name='tricks'
               id='{{players.indexOf(player)}}-tricks'
               ng-model="player.tricks"
               ng-change="setHasEdited(true)">
                  <option ng-repeat="num in trickOptions()" value="{{num}}">{{num}}</option>
               </select>
-            </span>
+              </td>
+            </tr>
 
-            <span class="form-group">
-              <p>Score: {{calculateScore(player.tricks, tricksTotal(), player.all, team)}}</p>
-            </span>
-            <span class="form-group">
-              <p>Total: {{player.score}}</p>
-            </span>
-            
-            <p><span class="{{currentDealer(players.indexOf(player))}}">Dealer</span></p>
+            <tr>
+            <td>
+              Score:
+            </td>
+            <td>
+             {{calculateScore(player.tricks, tricksTotal(), player.all, team)}}
+             </td>
+            </tr>
+            <tr>
+              <td>Total:</td><td>{{player.score}}</td>
+            </tr>
+            </table>
+
+            <p class="input-group">
+              <input type="radio" 
+                    ng-model='$parent.dealer'
+                    name='dealer'
+                    id='{{players.indexOf(player)}}-dealer'
+                    ng-value='{{players.indexOf(player)}}'>
+              <label for='{{players.indexOf(player)}}-dealer'>Dealer</label>
+            </p>
+          </div>
           </div>
           </li>
           </div>
@@ -107,13 +134,15 @@
         </form>
       </section>
 
-      <section id="highscores" class="panel panel-default col-sm-10 col-sm-offset-1" 
+      <section id="highscores" class="container" 
       ng-hide="active || instructions ">
-        <div class="panel-heading"><h2>Game Over</h2></div>
-        <div class="panel-body">
+        <div class="card">
+          <div class="card-content">
+          <h2 class="card-title">Game Over</h2>
+          <hr>
           <ul class="list-group">
-            <li ng-repeat="player in players | orderBy:'+score'" class="list-group-item">
-              <h4 class="list-group-item-heading">{{getPlace(($index + 1))}} Place</h4>
+            <li ng-repeat="player in players | orderBy:'+score'" class="">
+              <h3 class="">{{getPlace(($index + 1))}} Place</h3>
               <p>{{player.name}}</p>
               <p>Score: {{player.score}}</p>
             </li>
@@ -121,14 +150,17 @@
         </div>
       </section>
 
-      <section id="instructions" 
-      class="panel panel-default col-sm-10 col-sm-offset-1"
+     <section id="instructions" 
+      class="container"
       ng-hide="!instructions">
-        <div class="panel-heading">
-          <h2>Instructions</h2> 
-          <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="hideInstructions()"></span>
+        <div class="card">
+        <a name="Instructions" class="aria-only"></a>
+        <div class="card-content">  
+        <div>
+          <h2 class="card-title">Instructions</h2> 
+          <span class="" aria-hidden="true" ng-click="hideInstructions()"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></span>
+          <hr>
         </div>
-        <div class="panel-body">  
           <h3>Introduction</h3>
           <p>All or Nothing is a fun, fast-paced card game suitable for 3-6 players or 2-4 teams of 2 players each. This Scoresheet keeps track of the game play. It works in a web browser on any device from laptops to smartphones.</p>
           <h3>Getting Started</h3>
@@ -139,17 +171,20 @@
           <p>After each round of play, count the tricks each player or team took. Use the dropdown labeled “Tricks Taken” to enter that number for each player or team. After all of the tricks have been entered, select the “Next” button to move to the next round. The “Total” will be updated to show each player’s or team’s score.</p>
           <h3>Ending a Game</h3>
           <p>When “Next” is selected after the tenth round of play, or anytime a player or team gets to 0, the final scores and positions will be displayed. To start a new game, select the “New Game” button. Change the number of players, teams or player names as desired.</p>
-              <div><a href="#">Learn more about All or Nothing.</a></div>
-              <div><a href="#">How to play All or Nothing.</a></div>
+          <p><br/><hr><br/></p>
+          <div class="text-center">
+            <a class="btn btn-lg" href="http://allornothingcards.blogspot.com/p/main.html">Learn more about All or Nothing.</a>
+            <a class="btn btn-lg" href="http://allornothingcards.blogspot.com/p/instructions.html">How to play All or Nothing.</a>
+          </div>
+          </div>
         </div>
       </section>
-
-    </section>
-    <footer class="container-fluid">
+    </main>
+    <footer>
       <ul>
         <li><a href="http://allornothingcards.blogspot.com/p/main.html">Learn More</a></li>
-        <li><a href="https://www.amazon.com/gp/product/B01BM3FUC6/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01BM3FUC6&linkCode=as2&tag=jmaink-20&linkId=LWA7CIUX2UQHJKMF">Buy the Card Game</a></li>
-        <li><span class="a" ng-click="showInstructions()">Instructions</span></li>
+        <li><a href="http://www.amazon.com/gp/product/B01BM3FUC6/ref=as_li_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B01BM3FUC6&linkCode=as2&tag=jmaink-20&linkId=LWA7CIUX2UQHJKMF">Buy the Card Game</a></li>
+        <li><a href="#Instructions" ng-click="showInstructions()">Instructions</a></li>
       </ul>
       <p>&#169; Jmars Inc. 2016</p>
     </footer>
