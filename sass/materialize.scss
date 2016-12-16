@@ -116,7 +116,15 @@ footer a:hover:before, footer a:focus:before, footer a:active:before {
 	display: block;
     margin: 15px 15px 15px 0;
 }
-
+h2 {
+	display: inline-block;
+}
+i {
+	float: right;
+}
+i:hover {
+  cursor: pointer;
+}
 .round {
 	font-size: 1.2rem;
 	text-transform: uppercase;
@@ -127,7 +135,10 @@ footer a:hover:before, footer a:focus:before, footer a:active:before {
 	margin-top: 10px;
     margin-bottom: 15px;
 }
-
+input[type=radio]:checked + label {
+        color: #ecb939;
+        font-weight: bold;
+      }
 .aria-only {
     height: 0;
     width: 0;
