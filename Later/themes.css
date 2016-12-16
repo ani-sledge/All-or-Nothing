@@ -1,0 +1,227 @@
+/*THEMES DOC SETUP*/
+.container {
+  max-width: 200px;
+  padding: 10px; }
+  .container .btn {
+    display: block; }
+
+.debug {
+  border: 2px solid red;
+  border-radius: 4px;
+  background-color: #ffcccc;
+  max-width: 500px;
+  font-size: 10px; }
+
+/*SCREEN READER*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0; }
+
+/*COLORS*/
+/*TEXT*/
+body {
+  font-family: Arial, sans-serif;
+  font-size: 100%;
+  width: 100%;
+  background-color: #1a1a1a; }
+
+#light {
+  color: #1a1a1a;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  padding-left: 20px; }
+
+#dark {
+  color: #f2f2f2;
+  background-color: #1a1a1a;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  padding-left: 20px; }
+
+/*FOOTER*/
+html {
+  min-height: 100%; }
+
+body {
+  margin: 0; }
+
+footer {
+  display: block;
+  clear: both;
+  height: 80px;
+  padding: 30px 0px;
+  width: 100%;
+  text-align: center; }
+  footer li {
+    margin: 20px; }
+
+/*LISTS*/
+li {
+  list-style: none; }
+
+ul {
+  padding: 0; }
+
+footer li, nav li {
+  display: inline-block; }
+
+/*NAVIGATION*/
+nav {
+  color: #f2f2f2; }
+
+/*PLAYER SECTIONS*/
+li.players {
+  margin: 10px;
+  float: left;
+  width: 260px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 2px solid #f2f2f2;
+  border-radius: 4px;
+  text-align: center; }
+
+.spacer {
+  color: #f2f2f2; }
+
+/*BUTTONS*/
+.btn {
+  margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+  color: #f2f2f2;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+  border: 2px solid #1a1a1a;
+  border-radius: 4px;
+  outline: 0; }
+  .btn:hover {
+    border-color: #e8a700;
+    background-color: #e8a700; }
+
+.btn-dark {
+  border-color: #f2f2f2;
+  background-color: #f2f2f2;
+  color: #1a1a1a; }
+
+.btn-high {
+  border-color: #0084a3;
+  background-color: #0084a3; }
+
+.btn-sm {
+  font-size: .8em;
+  padding: 6px; }
+
+.btn-md {
+  font-size: 1em;
+  padding: 8px 10px; }
+
+.btn-lg {
+  font-size: 1.3em;
+  padding: 8px 12px; }
+
+/*LINKS*/
+a {
+  margin: 5px;
+  padding: 2px 1px;
+  font-weight: bold;
+  font-size: 1em;
+  text-decoration: none;
+  color: #009dc2; }
+  a:hover {
+    border-bottom: 2px solid #009dc2; }
+
+.a-gold {
+  color: #e8a700; }
+  .a-gold:hover {
+    border-color: #e8a700; }
+
+/*FORMS*/
+/*fields*/
+.form-group {
+  display: block; }
+  .form-group input, .form-group label, .form-group h4 {
+    display: inline; }
+
+input[type="number"] {
+  width: 60px; }
+
+.textfield {
+  padding: 5px 10px;
+  margin: 5px;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  color: #1a1a1a;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #f2f2f2;
+  border: 2px solid #f2f2f2;
+  border-radius: 4px;
+  outline: 0; }
+  .textfield:focus {
+    border-color: #e8a700; }
+
+.textfield-dark {
+  border-color: #1a1a1a; }
+
+/*sliders*/
+.slider {
+  border-radius: 4px;
+  background: #1a1a1a;
+  border: 2px solid #1a1a1a; }
+  .slider .ui-state-default {
+    background: #e8a700;
+    outline: 0;
+    border-radius: 15px;
+    border: 2px solid #e8a700; }
+    .slider .ui-state-default:hover {
+      background: #ffce4f;
+      border-color: #ffce4f; }
+    .slider .ui-state-default:focus {
+      background: #ffce4f;
+      border-color: #ffce4f; }
+
+.slider-dark {
+  background: #f2f2f2;
+  border-color: #f2f2f2; }
+
+/*POP-UPS*/
+.confirm {
+  display: none; }
+
+.confirm-visible {
+  display: block;
+  z-index: 100;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  right: 30%;
+  height: 175px;
+  background-color: #e8a700;
+  opacity: 0.9;
+  border: 2px solid #1a1a1a;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px; }
+  .confirm-visible button {
+    margin-left: auto;
+    margin-right: auto; }
+
+#highscores {
+  width: 60%;
+  margin: 0 auto;
+  background-color: #f2f2f2; }
+
+/*# sourceMappingURL=themes.css.map */

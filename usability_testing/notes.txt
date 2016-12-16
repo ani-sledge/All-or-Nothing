@@ -1,0 +1,5 @@
+Participant Attributes
+- Plays card games at least 1 time per month
+- Uses the internet at least once per week
+- Some experience using a touchscreen
+- Familiar with All or Nothing or Wizard
