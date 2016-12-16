@@ -1,0 +1,394 @@
+/* line 8, ../sass/anstyle.scss */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 12, ../sass/anstyle.scss */
+body {
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #e1e1e1;
+  color: #fafafa;
+}
+
+/* line 18, ../sass/anstyle.scss */
+.aria-only {
+  height: 0;
+  width: 0;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border: none;
+}
+
+/* line 26, ../sass/anstyle.scss */
+p {
+  font-size: 1.6em;
+  font-weight: normal;
+}
+
+/* line 30, ../sass/anstyle.scss */
+.players {
+  color: #444444;
+  margin-bottom: 15px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fafafa;
+  border: 3px solid #fafafa;
+  border-radius: 6px;
+}
+/* line 31, ../sass/anstyle.scss */
+.players label {
+  font-size: 1.6em;
+  font-weight: normal;
+}
+/* line 42, ../sass/anstyle.scss */
+.players .input-group {
+  margin: 5px auto;
+}
+/* line 45, ../sass/anstyle.scss */
+.players .form-group {
+  margin: 5px auto;
+}
+/* line 48, ../sass/anstyle.scss */
+.players input[type="number"] {
+  width: 60px;
+}
+
+/* line 52, ../sass/anstyle.scss */
+input {
+  font-size: 1.6em;
+  font-weight: normal;
+}
+
+/* line 56, ../sass/anstyle.scss */
+footer {
+  font-size: 1.6em;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+  background-color: #ecb939;
+}
+/* line 62, ../sass/anstyle.scss */
+footer ul {
+  padding-left: 0;
+  padding-top: 40px;
+}
+/* line 66, ../sass/anstyle.scss */
+footer li {
+  list-style: none;
+  margin: 10px 0;
+}
+/* line 70, ../sass/anstyle.scss */
+footer p {
+  font-size: 1em;
+}
+
+/* line 74, ../sass/anstyle.scss */
+h2 {
+  font-size: 2.5em;
+}
+
+/* line 77, ../sass/anstyle.scss */
+h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+}
+
+/* line 82, ../sass/anstyle.scss */
+h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+}
+
+/* line 87, ../sass/anstyle.scss */
+.inputname {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+}
+
+/* line 92, ../sass/anstyle.scss */
+h1 {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  font-size: 3em;
+}
+
+/* line 97, ../sass/anstyle.scss */
+a, .a {
+  padding: 5px 10px;
+  font-variant: small-caps;
+  text-decoration: none;
+  color: black;
+  border: 3px solid #ecb939;
+  border-radius: 6px;
+}
+/* line 104, ../sass/anstyle.scss */
+a:hover, .a:hover {
+  text-decoration: none;
+  color: black;
+  border-color: black;
+}
+/* line 109, ../sass/anstyle.scss */
+a:active, .a:active {
+  text-decoration: none;
+  color: black;
+}
+
+/* line 114, ../sass/anstyle.scss */
+header {
+  font: "Lato", Arial, sans-serif;
+  background-color: black;
+}
+/* line 117, ../sass/anstyle.scss */
+header small {
+  color: #ecb939;
+}
+
+/* line 121, ../sass/anstyle.scss */
+.navbar {
+  margin-bottom: 0;
+}
+
+/* line 124, ../sass/anstyle.scss */
+.navbar-inverse {
+  background-color: #444444;
+  border-bottom: 3px solid #ecb939;
+  border-radius: 0;
+}
+
+/* line 129, ../sass/anstyle.scss */
+.navbar-toggle {
+  margin-top: 40px;
+}
+
+/* line 132, ../sass/anstyle.scss */
+.navbar-btn {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border: 3px solid #444444;
+  border-radius: 6px;
+  font-variant: small-caps;
+}
+/* line 138, ../sass/anstyle.scss */
+.navbar-btn:hover {
+  color: #fafafa;
+}
+
+/* line 142, ../sass/anstyle.scss */
+.navbar-text {
+  float: none;
+}
+
+/* line 145, ../sass/anstyle.scss */
+.btn-gold {
+  background-color: #444444;
+  border: 3px solid #fafafa;
+}
+/* line 148, ../sass/anstyle.scss */
+.btn-gold:hover {
+  color: #ecb939;
+  border-color: #ecb939;
+}
+
+/* line 153, ../sass/anstyle.scss */
+#activegame {
+  padding-top: 20px;
+}
+/* line 155, ../sass/anstyle.scss */
+#activegame li {
+  list-style: none;
+}
+
+/* line 160, ../sass/anstyle.scss */
+.form-group label {
+  display: inline;
+  vertical-align: middle;
+}
+/* line 164, ../sass/anstyle.scss */
+.form-group input {
+  display: inline;
+  vertical-align: middle;
+}
+
+/* line 169, ../sass/anstyle.scss */
+.input-group.checkbox {
+  width: 100%;
+}
+/* line 171, ../sass/anstyle.scss */
+.input-group.checkbox label {
+  padding-left: 0;
+}
+
+/* line 175, ../sass/anstyle.scss */
+.textfield {
+  width: 100%;
+  padding: 5px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fafafa;
+  border: 3px solid #fafafa;
+  border-radius: 6px;
+  outline: 0;
+}
+/* line 184, ../sass/anstyle.scss */
+.textfield:focus {
+  border-color: #ecb939;
+}
+
+/* line 188, ../sass/anstyle.scss */
+.dealer {
+  color: #ecb939;
+  font-variant: small-caps;
+  padding: 5px 10px;
+  font-weight: normal;
+  border: 3px solid #ecb939;
+  border-radius: 6px;
+}
+
+/* line 196, ../sass/anstyle.scss */
+.notdealer {
+  color: #ecb939;
+  font-variant: small-caps;
+  padding: 5px 10px;
+  font-weight: normal;
+  border: 3px solid #ecb939;
+  border-radius: 6px;
+  visibility: hidden;
+}
+
+/* line 205, ../sass/anstyle.scss */
+#highscores,
+#instructions {
+  margin-top: 15px;
+  border: 3px solid #fafafa;
+  border-radius: 6px;
+  background-color: #444444;
+}
+/* line 211, ../sass/anstyle.scss */
+#highscores .panel-heading,
+#instructions .panel-heading {
+  text-align: center;
+  color: #fff;
+  background-color: #444444;
+  border: 3px solid #444444;
+}
+
+/* line 221, ../sass/anstyle.scss */
+#instructions .panel-heading h2 {
+  display: inline;
+}
+/* line 224, ../sass/anstyle.scss */
+#instructions .panel-heading span {
+  margin-top: 6px;
+  font-size: 1.5em;
+  float: right;
+}
+/* line 228, ../sass/anstyle.scss */
+#instructions .panel-heading span:hover {
+  cursor: pointer;
+}
+/* line 234, ../sass/anstyle.scss */
+#instructions .panel-body {
+  color: black;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+/* line 239, ../sass/anstyle.scss */
+#instructions .panel-body div {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* line 246, ../sass/anstyle.scss */
+#activegame {
+  margin-bottom: 100px;
+}
+
+/* line 249, ../sass/anstyle.scss */
+#highscores {
+  margin-bottom: 100px;
+}
+/* line 251, ../sass/anstyle.scss */
+#highscores .list-group {
+  text-align: center;
+  color: #444444;
+}
+
+@media (min-width: 768px) {
+  /* line 257, ../sass/anstyle.scss */
+  .navbar-form {
+    padding-left: 0;
+  }
+
+  /* line 260, ../sass/anstyle.scss */
+  #player-count {
+    margin-left: 15px;
+  }
+
+  /* line 264, ../sass/anstyle.scss */
+  .players input[type="checkbox"] {
+    margin: 8px 0;
+    left: 30%;
+  }
+
+  /* line 269, ../sass/anstyle.scss */
+  footer {
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+  }
+  /* line 273, ../sass/anstyle.scss */
+  footer li {
+    display: inline;
+    margin: 0 15px;
+  }
+
+  /* line 278, ../sass/anstyle.scss */
+  #main {
+    margin-bottom: 150px;
+  }
+
+  /* line 281, ../sass/anstyle.scss */
+  #highscores, #instructions {
+    margin-bottom: 165px;
+  }
+
+  /* line 284, ../sass/anstyle.scss */
+  #instructions .panel-body a {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 767px) {
+  /* line 289, ../sass/anstyle.scss */
+  .navbar-right {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  /* line 293, ../sass/anstyle.scss */
+  .navbar-left {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  /* line 297, ../sass/anstyle.scss */
+  #checkbox-team {
+    margin-right: 15px;
+  }
+
+  /* line 300, ../sass/anstyle.scss */
+  #player-count {
+    margin-right: 15px;
+  }
+
+  /* line 303, ../sass/anstyle.scss */
+  .btn-non {
+    padding-left: 0;
+  }
+}

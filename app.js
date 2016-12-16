@@ -5,25 +5,38 @@ scoreCard.controller('GameController', ['$scope',
 		$scope.active = true;
 		$scope.instructions = false;
 		$scope.round = 1;
+		$scope.dealer = 0;
 		$scope.team = false;
 		$scope.has_edited_game = false;
 		$scope.player_count = "4";
-		$scope.options = [2, 3, 4, 5, 6];
-		$scope.debug = "";
+		$scope.options = [2, 3, 4, 5, 6, 7, 8];
+		$scope.debug = "";  
+		var trick_lookup = {
+			"2": 10,
+			"3": 10,
+			"4": 10,
+			"5": 8,
+			"6": 8,
+			"7": 6,
+			"8": 6,
+			"team-2": 10,
+			"team-3": 8,
+			"team-4": 6 
+		}
 
-		function Player() {
+		function Player(dealer) {
 			this.name = "";
 			this.score = 100;
 			this.tricks = "0";
 			this.all = false;
 		}
 		$scope.players = [
-			new Player(),
-			new Player(),
-			new Player(),
-			new Player()
+			new Player(true),
+			new Player(false),
+			new Player(false),
+			new Player(false)
 		];
-
+		
 		$scope.restart = function() {
 			$scope.players = [];
 			for (j = 0; j < $scope.player_count; j++) {
@@ -31,6 +44,7 @@ scoreCard.controller('GameController', ['$scope',
 			}
 			$scope.active = true;
 			$scope.round = 1;
+			$scope.dealer = 0;
 			$scope.has_edited_game = false;
 		}
 
@@ -71,7 +85,7 @@ scoreCard.controller('GameController', ['$scope',
 			if ($scope.team) {
 				return [2, 3, 4];
 			} else {
-				return [2, 3, 4, 5, 6];
+				return [2, 3, 4, 5, 6, 7, 8];
 			}
 		}
 
@@ -93,17 +107,7 @@ scoreCard.controller('GameController', ['$scope',
 				}
 			} else {
 				$scope.restart();
-			}
-		}
-
-		$scope.currentDealer = function(index) {
-			if ($scope.round == index + 1) {
-				return 'dealer';
-			} else if ($scope.round - $scope.players.length == index + 1) {
-				return 'dealer';
-			} else {
-				return "notdealer";
-			}
+			} 
 		}
 
 		$scope.setHasEdited = function(boolean) {
@@ -111,13 +115,17 @@ scoreCard.controller('GameController', ['$scope',
 		}
 
 		$scope.tricksTotal = function() {
-			if ($scope.players.length > 1 && $scope.players.length < 5) {
-				return 10;
-			} else if ($scope.players.length == 5 || $scope.players.length == 6) {
-				return 8;
+			if ($scope.team) {
+				var id = "team-" + $scope.player_count; 
+				return trick_lookup[id];
 			} else {
-				return 0
+				return trick_lookup[$scope.player_count];
 			}
+			
+		}
+
+		$scope.changeDealer = function(index) {
+			$scope.dealer = index;
 		}
 
 		$scope.calculateScore = function(tricks, tricks_total, all, team) {
@@ -203,6 +211,7 @@ scoreCard.controller('GameController', ['$scope',
 			if ($scope.round <= 10 && $scope.active) {
 				if ($scope.meetTotalTricks()) {
 					$scope.round += 1;
+					$scope.dealer = ($scope.dealer + 1) % $scope.player_count;
 					for (i = 0; i < $scope.players.length; i++) {
 						var player = $scope.players[i];
 						var tricks_total = $scope.tricksTotal();

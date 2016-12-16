@@ -243,7 +243,11 @@ header {
         }
     }
 }
+#activegame {
+    margin-bottom:100px;
+}
 #highscores {
+    margin-bottom:100px;
     .list-group {
         text-align: center;
         color: $color_4;
