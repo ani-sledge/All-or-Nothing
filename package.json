@@ -1,0 +1,23 @@
+{
+  "name": "allornothing",
+  "version": "1.0.0",
+  "description": "Scorekeeping app for the cardgame All or Nothing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "node_modules/jsdoc/jsdoc.js ./src out"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anisledge/All-or-Nothing.git"
+  },
+  "author": "anisledge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anisledge/All-or-Nothing/issues"
+  },
+  "homepage": "https://github.com/anisledge/All-or-Nothing#readme",
+  "devDependencies": {
+    "jsdoc": "^3.4.3"
+  }
+}
