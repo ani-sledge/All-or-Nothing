@@ -2,6 +2,18 @@ var scoreCard = angular.module('scoreCard', []);
 
 scoreCard.controller('GameController', ['$scope',
 	function($scope) {
+		/**
+		 * Represents a player.
+		 * @constructor
+		 */
+		function Player() {
+			this.name = "";
+			this.score = 100;
+			this.tricks = "0";
+			this.all = false;
+		}
+
+		//Game settings
 		$scope.active = true;
 		$scope.instructions = false;
 		$scope.round = 1;
@@ -11,6 +23,14 @@ scoreCard.controller('GameController', ['$scope',
 		$scope.player_count = "4";
 		$scope.options = [2, 3, 4, 5, 6, 7, 8];
 		$scope.debug = "";  
+		$scope.players = [
+			new Player(true),
+			new Player(false),
+			new Player(false),
+			new Player(false)
+		];
+
+		//Number of tricks by number of players
 		var trick_lookup = {
 			"2": 10,
 			"3": 10,
@@ -24,19 +44,9 @@ scoreCard.controller('GameController', ['$scope',
 			"team-4": 6 
 		}
 
-		function Player(dealer) {
-			this.name = "";
-			this.score = 100;
-			this.tricks = "0";
-			this.all = false;
-		}
-		$scope.players = [
-			new Player(true),
-			new Player(false),
-			new Player(false),
-			new Player(false)
-		];
-		
+		/**
+		 * Returns game settings to their initial state.
+		 */
 		$scope.restart = function() {
 			$scope.players = [];
 			for (j = 0; j < $scope.player_count; j++) {
@@ -48,6 +58,9 @@ scoreCard.controller('GameController', ['$scope',
 			$scope.has_edited_game = false;
 		}
 
+		/**
+		 * If the game is in play, asks the user for confirmation before restarting the game.
+		 */
 		$scope.newGame = function() {
 			if ($scope.has_edited_game) {
 				$scope.confirm = confirm("This action will cause the game to reset.\nDo you want to continue?");
@@ -59,6 +72,9 @@ scoreCard.controller('GameController', ['$scope',
 			}
 		}
 
+		/**
+		 * Resets the game when the user switches to 'team' mode.
+		 */
 		$scope.confirmTeam = function() {
 			if ($scope.has_edited_game) {
 				$scope.confirm = confirm("This action will cause the game to reset.\nDo you want to continue?");
@@ -81,6 +97,9 @@ scoreCard.controller('GameController', ['$scope',
 			}
 		}
 
+		/**
+		 * Returns the possible numbers of players with or without team play. For use in an <option> tag.
+		 */
 		$scope.teamOptions = function() {
 			if ($scope.team) {
 				return [2, 3, 4];
@@ -89,6 +108,9 @@ scoreCard.controller('GameController', ['$scope',
 			}
 		}
 
+		/**
+		 * Returns the possible number of tricks taken based on the number of players. For use in an <option> tag.
+		 */
 		$scope.trickOptions = function() {
 			var tricksList = [];
 			for (i = 0; i <= $scope.tricksTotal(); i++) {
@@ -97,6 +119,9 @@ scoreCard.controller('GameController', ['$scope',
 			return tricksList;
 		}
 
+		/**
+		 * If the game is in play, asks the user for confirmation before changing the number of players.
+		 */
 		$scope.confirmCount = function() {
 			if ($scope.has_edited_game) {
 				$scope.confirm = confirm("This action will cause the game to reset.\nDo you want to continue?");
@@ -110,10 +135,17 @@ scoreCard.controller('GameController', ['$scope',
 			} 
 		}
 
-		$scope.setHasEdited = function(boolean) {
-			$scope.has_edited_game = boolean;
+		/**
+		 * Sets the has_edited_game property.
+		 * @param {boolean} hasEdited - Whether the game has been updated since initialization.
+		 */
+		$scope.setHasEdited = function(hasEdited) {
+			$scope.has_edited_game = hasEdited;
 		}
 
+		/**
+		 * Returns the total tricks per round, based on the number of players and team setting. 
+		 */
 		$scope.tricksTotal = function() {
 			if ($scope.team) {
 				var id = "team-" + $scope.player_count; 
@@ -124,10 +156,21 @@ scoreCard.controller('GameController', ['$scope',
 			
 		}
 
+		/**
+		 * Sets the position of the dealer in the list of players.
+		 * @param {number} index - The current index of the dealer.
+		 */
 		$scope.changeDealer = function(index) {
 			$scope.dealer = index;
 		}
 
+		/**
+		 * Calculates the current score for a player.
+		 * @param {number} tricks - The number of tricks taken by the player this round.
+		 * @param {number} tricks_total - The total tricks for each round.
+		 * @param {boolean} all - Whether the player bid 'all' or 'nothing'.
+		 * @param {boolean} team - Wether team play is enabled.
+		 */
 		$scope.calculateScore = function(tricks, tricks_total, all, team) {
 			var score = 0;
 			if (all) {
@@ -148,6 +191,9 @@ scoreCard.controller('GameController', ['$scope',
 			return score;
 		}
 
+		/**
+		 * Returns the <label> text to indicate the current team setting.
+		 */
 		$scope.getTeam = function() {
 			if ($scope.team) {
 				return 'Team';
@@ -155,6 +201,10 @@ scoreCard.controller('GameController', ['$scope',
 				return 'Player';
 			}
 		}
+
+		/**
+		 * Returns the <label> text to indicate a player's bid.
+		 */
 		$scope.getBid = function(all) {
 			if (all) {
 				return 'All';
@@ -163,6 +213,9 @@ scoreCard.controller('GameController', ['$scope',
 			}
 		}
  
+ 		/**
+ 		 * Checks that the sum of the players' tricks taken matches the total tricks for each round.
+ 		 */
 		$scope.meetTotalTricks = function() {
 			var current_tricks = 0;
 			for (i = 0; i < $scope.players.length; i++){
@@ -174,14 +227,25 @@ scoreCard.controller('GameController', ['$scope',
 				return false;
 			}
 		}
+
+		/**
+		 * Indicates that the instructions view should be shown.
+		 */
 		$scope.showInstructions = function() {
 			$scope.instructions = true;
 		}
 
+		/**
+		 * Indicates that the instructions view should be hidden.
+		 */
 		$scope.hideInstructions = function() {
 			$scope.instructions = false;
 		}
 
+		/**
+		 * Converts a number to a place.
+		 * @param {number} num - The index of the player.
+		 */
 		$scope.getPlace = function(num) {
 	        if (num == 1) {
 	          	return '1st';
@@ -193,6 +257,10 @@ scoreCard.controller('GameController', ['$scope',
 	          	return num + "th";
 	        }
       	}
+
+      	/**
+      	 * Ends the game and shows the players' final scores.
+      	 */
 		$scope.gameOver = function() {
 			for (i = 0; i < $scope.players.length; i++) {
 				if ($scope.players[i].name == "") {
@@ -207,11 +275,20 @@ scoreCard.controller('GameController', ['$scope',
 			$scope.active = false;
 			$scope.has_edited_game = false;
 		}
+
+		/**
+		 * Advances the game by one round.
+		 */
 		$scope.advanceGame = function() {	
+			//The game lasts ten rounds maximum
 			if ($scope.round <= 10 && $scope.active) {
+
+				//Round cannot advance until all the tricks are taken
 				if ($scope.meetTotalTricks()) {
 					$scope.round += 1;
 					$scope.dealer = ($scope.dealer + 1) % $scope.player_count;
+
+					//Update each player's score
 					for (i = 0; i < $scope.players.length; i++) {
 						var player = $scope.players[i];
 						var tricks_total = $scope.tricksTotal();
@@ -229,6 +306,8 @@ scoreCard.controller('GameController', ['$scope',
 			} else {
 				$scope.gameOver();
 			}
+
+			//A player wins if their score is less than 0
 			for (i = 0; i < $scope.players.length; i++) {
 				if ($scope.players[i]['score'] <= 0) {
 					$scope.gameOver();
