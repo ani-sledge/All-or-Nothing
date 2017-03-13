@@ -1,5 +1,6 @@
 # All-or-Nothing
-A scorekeeping web app for the card game All Or Nothing using AngularJS and Twitter Bootstrap. 
+A scorekeeping web app for the card game All Or Nothing using AngularJS and Twitter Bootstrap.  
+
 [Learn more](http://allornothingcards.blogspot.com/p/main.html) about the game, or 
 [visit the app](http://anisledge.jmarsinc.com/allornothing.html).
 
@@ -14,3 +15,6 @@ A scorekeeping web app for the card game All Or Nothing using AngularJS and Twit
 7. Enter the bid and total tricks for each round, until the 'Game Over' screen appears.
 
 If you would like to start a new game at any time, click the 'New Game' button in the menu, or use the 'Total Players' dropdown or 'Team Play' checkbox to alter the game settings. 
+
+## Installation
+Clone or Download the repo, then open **allornothing.html** in your browser of choice. 
