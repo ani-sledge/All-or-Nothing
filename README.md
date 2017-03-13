@@ -17,4 +17,9 @@ A scorekeeping web app for the card game All Or Nothing using AngularJS and Twit
 If you would like to start a new game at any time, click the 'New Game' button in the menu, or use the 'Total Players' dropdown or 'Team Play' checkbox to alter the game settings. 
 
 ## Installation
-Clone or Download the repo, then open **allornothing.html** in your browser of choice. 
+Clone or download the GitHub repository:
+```
+$ git clone https://github.com/anisledge/All-or-Nothing.git
+$ cd All-or-Nothing
+```
+Open **allornothing.html** in your browser of choice or [visit the app](http://anisledge.jmarsinc.com/allornothing.html) online.
